@@ -1,0 +1,2322 @@
+<!DOCTYPE html>
+<!-- saved from url=(0084)https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html -->
+<html lang="en" class="js-focus-visible js" data-js-focus-visible=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+      
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/instalacion/">
+      
+      
+        <link rel="next" href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/paquetes/">
+      
+      <link rel="icon" href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.13">
+    
+    
+      
+        <title>Laravel 9</title>
+      
+    
+    
+      <link rel="stylesheet" href="./apuntes_laravel_files/main.ffa9267a.min.css">
+      
+        
+        <link rel="stylesheet" href="./apuntes_laravel_files/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+        <link rel="stylesheet" href="./apuntes_laravel_files/css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="./apuntes_laravel_files/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#apuntes-laravel" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/" title="Laravel 9" class="md-header__button md-logo" aria-label="Laravel 9" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Laravel 9
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. Apuntes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">Type to start searching</div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/" title="Laravel 9" class="md-nav__button md-logo" aria-label="Laravel 9" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+
+    </a>
+    Laravel 9
+  </label>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/comandos/" class="md-nav__link">
+        1. Comandos
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/instalacion/" class="md-nav__link">
+        2. Instalación
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          3. Apuntes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/" class="md-nav__link md-nav__link--active">
+        3. Apuntes
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#rutas" class="md-nav__link">
+    RUTAS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#controlador" class="md-nav__link">
+    CONTROLADOR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#vista" class="md-nav__link">
+    VISTA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#sesiones-globales" class="md-nav__link">
+    SESIONES GLOBALES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#mensajes-flash" class="md-nav__link">
+    MENSAJES FLASH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#alert-sweet" class="md-nav__link">
+    ALERT SWEET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#bases-de-datos-orm" class="md-nav__link">
+    BASES DE DATOS - ORM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#seeder-semillas" class="md-nav__link">
+    SEEDER (SEMILLAS)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#consultar-datos" class="md-nav__link">
+    CONSULTAR DATOS
+  </a>
+  
+    <nav class="md-nav" aria-label="CONSULTAR DATOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#constructor-de-consultas-query-builder" class="md-nav__link">
+    CONSTRUCTOR DE CONSULTAS (Query Builder)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#consultas-sql-nativas" class="md-nav__link">
+    CONSULTAS SQL NATIVAS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#eloquent" class="md-nav__link">
+    ELOQUENT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#paginar" class="md-nav__link">
+    PAGINAR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#crud" class="md-nav__link">
+    CRUD
+  </a>
+  
+    <nav class="md-nav" aria-label="CRUD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#index-mostrar-datos" class="md-nav__link">
+    INDEX-MOSTRAR DATOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#insertar-store" class="md-nav__link">
+    INSERTAR -STORE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#editar" class="md-nav__link">
+    EDITAR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#borrar" class="md-nav__link">
+    BORRAR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#relacion-uno-a-uno-1x1" class="md-nav__link">
+    RELACIÓN UNO A UNO (1X1)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#relacion-uno-a-muchos-1xm" class="md-nav__link">
+    RELACIÓN UNO A MUCHOS (1XM)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#relacion-de-muchos-a-muchos-nxm" class="md-nav__link">
+    RELACION DE MUCHOS A MUCHOS (NXM)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#autentificacion-login-registro" class="md-nav__link">
+    AUTENTIFICACIÓN (LOGIN - REGISTRO)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#try-catch" class="md-nav__link">
+    TRY ... CATCH
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/paquetes/" class="md-nav__link">
+        4. Paquetes
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#rutas" class="md-nav__link">
+    RUTAS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#controlador" class="md-nav__link">
+    CONTROLADOR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#vista" class="md-nav__link">
+    VISTA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#sesiones-globales" class="md-nav__link">
+    SESIONES GLOBALES
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#mensajes-flash" class="md-nav__link">
+    MENSAJES FLASH
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#alert-sweet" class="md-nav__link">
+    ALERT SWEET
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#bases-de-datos-orm" class="md-nav__link">
+    BASES DE DATOS - ORM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#seeder-semillas" class="md-nav__link">
+    SEEDER (SEMILLAS)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#consultar-datos" class="md-nav__link">
+    CONSULTAR DATOS
+  </a>
+  
+    <nav class="md-nav" aria-label="CONSULTAR DATOS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#constructor-de-consultas-query-builder" class="md-nav__link">
+    CONSTRUCTOR DE CONSULTAS (Query Builder)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#consultas-sql-nativas" class="md-nav__link">
+    CONSULTAS SQL NATIVAS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#eloquent" class="md-nav__link">
+    ELOQUENT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#paginar" class="md-nav__link">
+    PAGINAR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#crud" class="md-nav__link">
+    CRUD
+  </a>
+  
+    <nav class="md-nav" aria-label="CRUD">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#index-mostrar-datos" class="md-nav__link">
+    INDEX-MOSTRAR DATOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#insertar-store" class="md-nav__link">
+    INSERTAR -STORE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#editar" class="md-nav__link">
+    EDITAR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#borrar" class="md-nav__link">
+    BORRAR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#relacion-uno-a-uno-1x1" class="md-nav__link">
+    RELACIÓN UNO A UNO (1X1)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#relacion-uno-a-muchos-1xm" class="md-nav__link">
+    RELACIÓN UNO A MUCHOS (1XM)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#relacion-de-muchos-a-muchos-nxm" class="md-nav__link">
+    RELACION DE MUCHOS A MUCHOS (NXM)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#autentificacion-login-registro" class="md-nav__link">
+    AUTENTIFICACIÓN (LOGIN - REGISTRO)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://aules.edu.gva.es/fp/pluginfile.php/5020072/mod_resource/content/2/index.html#try-catch" class="md-nav__link">
+    TRY ... CATCH
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="apuntes-laravel">APUNTES LARAVEL</h1>
+<h2 id="rutas">RUTAS</h2>
+<p>Las rutas se situan en <strong><em>Mi-PROYECTO-&gt;ROUTES-&gt;WEB</em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code>└── routes
+      └── web
+</code></pre></div></td></tr></tbody></table></div>
+<p>Aquí podemos ver la primera ruta.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Route</span><span class="p">::</span><span class="n">get</span><span class="p">(</span><span class="s1">'mundo'</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s1">'Hello Clase 2 DAW'</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Le pasamos a la ruta un identificador que tendrá un valor por defecto y esa ruta tendrá un nombre dentro de la misma vista, asignamos valor por defecto</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Route</span><span class="p">::</span><span class="n">get</span><span class="p">(</span><span class="s1">'/show/{id?}'</span><span class="p">,</span><span class="n">function</span><span class="p">(</span><span class="err">$</span><span class="nb">id</span><span class="o">=</span><span class="s2">"122"</span><span class="p">){</span>
+
+  <span class="k">return</span> <span class="err">$</span><span class="nb">id</span><span class="p">;</span>
+
+<span class="p">})</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(</span><span class="s1">'show'</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Otra forma de ruta y utilizando un pattern númerico (sólo pueden introducir números)</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="n">Route</span><span class="p">::</span><span class="n">get</span><span class="p">(</span><span class="s1">'/par-o-impar-</span><span class="si">{numero}</span><span class="s1">'</span><span class="p">,</span><span class="n">function</span><span class="p">(</span><span class="err">$</span><span class="n">numero</span><span class="p">){</span>
+     <span class="k">return</span> <span class="err">$</span><span class="n">numero</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="k">return</span> <span class="n">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">to</span><span class="p">(</span><span class="s1">'/show/3'</span><span class="p">);</span> <span class="o">-&gt;</span> <span class="n">te</span> <span class="n">redirije</span> <span class="n">a</span> <span class="n">la</span> <span class="n">ruta</span> <span class="n">que</span> <span class="n">le</span> <span class="n">indicas</span>
+
+    <span class="o">//</span><span class="k">return</span> <span class="n">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">route</span><span class="p">(</span><span class="s1">'show'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">te</span> <span class="n">redirije</span> <span class="n">a</span> <span class="n">la</span> <span class="n">ruta</span> <span class="n">que</span> <span class="n">tiene</span> <span class="n">el</span> <span class="n">nombre</span> <span class="n">asignado</span> <span class="n">en</span> <span class="n">el</span> <span class="n">name</span><span class="o">.</span>
+
+    <span class="o">//</span><span class="k">return</span> <span class="n">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">route</span><span class="p">(</span><span class="s1">'show'</span><span class="p">,[</span><span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="s1">'222'</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">en</span> <span class="n">caso</span> <span class="n">de</span> <span class="n">pasarle</span> <span class="n">algun</span> <span class="n">parámetro</span>
+<span class="p">}</span> <span class="p">)</span><span class="o">-&gt;</span><span class="n">where</span><span class="p">([</span><span class="s1">'numero'</span> <span class="o">=&gt;</span> <span class="s1">'[0-9]+'</span><span class="p">]);</span>
+
+<span class="o">//</span> <span class="n">de</span> <span class="n">esta</span> <span class="n">forma</span> <span class="n">añadimos</span> <span class="n">una</span> <span class="n">expresión</span> <span class="n">regular</span> <span class="n">para</span> <span class="n">que</span> <span class="n">solo</span> <span class="n">puedan</span> <span class="n">introducir</span> <span class="n">números</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> Restricciones con Expresiones Regulares </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="n">Route</span><span class="p">::</span><span class="n">get</span><span class="p">(</span><span class="s1">'user/</span><span class="si">{name}</span><span class="s1">'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="err">$</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+<span class="o">//</span>
+<span class="p">})</span><span class="o">-&gt;</span><span class="n">where</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'[A-Za-z]+'</span><span class="p">);</span>   
+
+<span class="o">//</span><span class="n">nomes</span> <span class="n">poden</span> <span class="n">passar</span> <span class="n">lletres</span> <span class="n">miníscules</span> <span class="n">o</span> <span class="n">Majúscules</span> <span class="n">como</span> <span class="n">mínim</span> <span class="n">una</span> <span class="n">volta</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Route</span><span class="p">::</span><span class="n">get</span><span class="p">(</span><span class="s1">'user/</span><span class="si">{id}</span><span class="s1">'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="err">$</span><span class="nb">id</span><span class="p">)</span> <span class="p">{</span>
+<span class="o">//</span>
+<span class="p">})</span><span class="o">-&gt;</span><span class="n">where</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'[0-9]+'</span><span class="p">);</span>
+
+<span class="o">//</span><span class="n">com</span> <span class="n">a</span> <span class="n">mínim</span><span class="p">,</span> <span class="n">a</span> <span class="n">soles</span> <span class="n">podem</span> <span class="n">passar</span> <span class="n">com</span> <span class="n">a</span> <span class="n">mínim</span> <span class="n">un</span> <span class="n">nombre</span><span class="o">.</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Route</span><span class="p">::</span><span class="n">get</span><span class="p">(</span><span class="s1">'user/</span><span class="si">{id}</span><span class="s1">/</span><span class="si">{name}</span><span class="s1">'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="err">$</span><span class="nb">id</span><span class="p">,</span> <span class="err">$</span><span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+<span class="o">//</span>
+<span class="p">})</span><span class="o">-&gt;</span><span class="n">where</span><span class="p">([</span><span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="s1">'[0-9]+'</span><span class="p">,</span> <span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'[a-z]+'</span><span class="p">]);</span>
+
+<span class="o">//</span><span class="n">le</span> <span class="n">pasamos</span> <span class="n">un</span> <span class="n">array</span> <span class="n">en</span> <span class="n">caso</span> <span class="n">de</span> <span class="n">más</span> <span class="n">de</span> <span class="n">un</span> <span class="n">elemento</span><span class="o">.</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Ruta que nos lleva directamente a una vista e incluso pasarle un argumento.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="n">Route</span><span class="p">::</span><span class="n">view</span> <span class="p">(</span><span class="n">directo</span> <span class="n">a</span> <span class="n">la</span> <span class="n">vista</span><span class="p">)</span>
+
+<span class="n">Route</span><span class="p">::</span><span class="n">view</span><span class="p">(</span><span class="s1">'/registro'</span><span class="p">,</span> <span class="s1">'registro'</span><span class="p">);</span>
+
+ <span class="o">//</span><span class="n">en</span> <span class="n">el</span> <span class="n">caso</span> <span class="n">que</span> <span class="n">sólo</span> <span class="n">queramos</span> <span class="n">enviar</span> <span class="n">a</span> <span class="n">una</span> <span class="n">vista</span> <span class="n">sin</span> <span class="n">pasar</span> <span class="n">por</span> <span class="n">el</span> <span class="n">controlador</span>
+
+<span class="n">Route</span><span class="p">::</span><span class="n">view</span><span class="p">(</span><span class="s1">'/welcome'</span><span class="p">,</span> <span class="s1">'clase'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'nombre'</span> <span class="o">=&gt;</span> <span class="s1">'Julio'</span><span class="p">]);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Especificamos que podemos usar GET y POST para una ruta</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">//</span><span class="n">verbos</span> <span class="n">HTTP</span> <span class="n">múltiples</span>
+<span class="n">Route</span><span class="p">::</span><span class="n">match</span><span class="p">([</span><span class="s1">'get'</span><span class="p">,</span> <span class="s1">'post'</span><span class="p">],</span> <span class="s1">'/'</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="o">//</span>
+<span class="p">});</span>
+
+
+<span class="o">//</span><span class="n">verbos</span> <span class="n">HTTP</span> <span class="n">cualquiera</span>
+<span class="n">Route</span><span class="p">::</span><span class="nb">any</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="n">function</span> <span class="p">()</span> <span class="p">{</span>
+<span class="o">//</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></tbody></table></div>
+<hr>
+<h2 id="controlador">CONTROLADOR</h2>
+<p><code>php artisan make:controller PeliculasController</code></p>
+<p>Creamos un controlador vacio, <strong>App-&gt;http-&gt;Controller-&gt;</strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code>.
+└── App
+    └── http
+         └── Controller
+</code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">//</span><span class="n">en</span> <span class="n">route</span>
+<span class="o">//</span><span class="n">añadir</span> <span class="n">la</span> <span class="n">ruta</span> <span class="n">en</span> <span class="n">web</span><span class="o">.</span><span class="n">php</span> <span class="n">arriba</span> <span class="k">del</span> <span class="n">todo</span><span class="o">.</span>
+
+<span class="n">use</span> <span class="n">App</span>\<span class="n">Http</span>\<span class="n">Controllers</span>\<span class="n">PeliculasController</span><span class="p">;</span>
+
+<span class="o">.............</span>
+
+<span class="n">Route</span><span class="p">::</span><span class="n">get</span><span class="p">(</span><span class="s1">'pelis'</span><span class="p">,</span> <span class="p">[</span><span class="n">PeliculasController</span><span class="p">::</span><span class="n">class</span><span class="p">,</span> <span class="s1">'mostrar'</span><span class="p">]);</span>
+
+<span class="o">//</span><span class="n">en</span> <span class="n">controlador</span>
+<span class="n">public</span> <span class="n">function</span> <span class="n">index</span><span class="p">(){</span>
+   <span class="n">echo</span> <span class="s2">"hola Julio"</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="vista">VISTA</h2>
+<p>Podemos aprovechar herencia en las vistas, por ello, vamos a crear.</p>
+<p>También podemos crear una carpeta que contiene vistas "menú" y dentro las páginas, para acceder a ellos, habría que poner "menu.pagina"</p>
+<p><strong><em> Vista Padre PADRE.blade.php </em></strong>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>
+        @yield('titulo')
+    <span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#home"</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#news"</span><span class="p">&gt;</span>News<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#contact"</span><span class="p">&gt;</span>Contact<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">"#about"</span><span class="p">&gt;</span>About<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+
+@yield('contenido')
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong><em> Vista Layout Hija hija.blade.php </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@extends</span><span class="p">(</span><span class="s1">'padre'</span><span class="p">)</span>
+
+<span class="nd">@section</span><span class="p">(</span><span class="s1">'titulo'</span><span class="p">,</span><span class="s1">'Página Heredada'</span><span class="p">)</span>
+
+<span class="nd">@section</span><span class="p">(</span><span class="s1">'contenido'</span><span class="p">)</span>
+    <span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">Página</span> <span class="n">Hija</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+<span class="nd">@endsection</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="sesiones-globales">SESIONES GLOBALES</h2>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="n">session</span><span class="p">([</span><span class="s1">'nombre'</span><span class="o">=&gt;</span><span class="s1">'Julio'</span><span class="p">]);</span> <span class="o">//</span><span class="n">otra</span> <span class="n">forma</span> <span class="n">de</span> <span class="n">crear</span> <span class="n">variables</span> <span class="n">sesión</span>
+
+<span class="err">$</span><span class="n">nombre</span><span class="o">=</span> <span class="n">session</span><span class="p">(</span><span class="s1">'nombre'</span><span class="p">);</span>  
+
+<span class="n">session</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">forget</span><span class="p">(</span><span class="s1">'nombre'</span><span class="p">);</span>  <span class="o">//</span><span class="n">Borra</span> <span class="n">Julio</span>
+
+<span class="n">session</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">flush</span><span class="p">();</span>           <span class="o">//</span><span class="n">borra</span> <span class="n">todo</span> <span class="n">tipo</span> <span class="n">de</span> <span class="n">variables</span> <span class="n">sesión</span><span class="p">,</span> <span class="n">flash</span><span class="o">...</span>
+
+<span class="n">dd</span><span class="p">(</span><span class="n">session</span><span class="p">()</span><span class="o">-&gt;</span><span class="nb">all</span><span class="p">())</span>         <span class="o">//</span><span class="n">muestra</span> <span class="n">todas</span> <span class="n">las</span> <span class="n">variables</span> <span class="n">de</span> <span class="n">sesión</span>
+
+<span class="o">/*</span><span class="n">mostrar</span> <span class="n">variables</span> <span class="n">sesión</span> <span class="n">en</span> <span class="n">blade</span> <span class="n">VISTA</span><span class="o">*/</span>
+
+<span class="p">{{</span><span class="n">session</span><span class="p">(</span><span class="s1">'julio'</span><span class="p">)}}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>https://laravel.com/docs/9.x/session#main-content</p>
+<h2 id="mensajes-flash">MENSAJES FLASH</h2>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="o">//</span><span class="n">cuando</span> <span class="n">en</span> <span class="n">una</span> <span class="n">página</span> <span class="n">queremos</span> <span class="n">enviar</span> <span class="n">un</span> <span class="n">mensaje</span> <span class="n">flahs</span> <span class="n">podemos</span> <span class="n">poner</span>
+
+<span class="k">return</span> <span class="n">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="k">with</span><span class="p">(</span><span class="s1">'status'</span><span class="p">,</span><span class="s1">'hemos recibido el mensaje'</span><span class="p">);</span> <span class="o">//</span><span class="n">guardamos</span> <span class="n">un</span> <span class="n">mensaje</span> <span class="n">flash</span>
+
+<span class="o">//</span><span class="n">luego</span> <span class="n">en</span> <span class="n">la</span> <span class="n">misma</span> <span class="n">pagina</span> <span class="p">(</span><span class="n">back</span><span class="p">)</span> <span class="n">ponemos</span> <span class="n">una</span> <span class="n">condicion</span> <span class="n">en</span> <span class="n">blade</span> <span class="n">si</span> <span class="n">hay</span> <span class="n">mensaje</span> <span class="n">de</span> <span class="n">sesion</span> <span class="n">muestra</span> <span class="n">sino</span> <span class="n">formulario</span><span class="o">.</span>
+ <span class="nd">@if</span><span class="p">(</span><span class="n">session</span><span class="p">(</span><span class="s1">'status'</span><span class="p">))</span>
+   <span class="p">{{</span><span class="n">session</span><span class="p">(</span><span class="s1">'status'</span><span class="p">)}}</span>
+<span class="nd">@else</span>
+   <span class="n">formulario</span>
+<span class="nd">@endif</span>
+
+<span class="o">//</span><span class="n">como</span> <span class="n">vamos</span> <span class="n">a</span> <span class="n">repetir</span> <span class="n">este</span> <span class="n">codigo</span> <span class="n">en</span> <span class="n">muchos</span> <span class="n">lados</span><span class="p">,</span> <span class="n">podemos</span> <span class="n">ponerlo</span> <span class="n">en</span> <span class="n">un</span> <span class="n">fichero</span> <span class="n">partial</span> <span class="p">(</span><span class="n">resources</span><span class="o">-</span><span class="n">views</span><span class="o">-</span><span class="n">partial</span><span class="p">)</span> <span class="n">y</span> <span class="n">luego</span> <span class="n">en</span> <span class="n">el</span> <span class="n">codigo</span> <span class="n">lo</span> <span class="n">sustituimos</span> <span class="n">por</span> <span class="nd">@include</span> <span class="n">en</span> <span class="n">el</span> <span class="n">editar</span><span class="o">.</span><span class="n">blade</span><span class="o">.</span><span class="n">php</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="alert-sweet">ALERT SWEET</h2>
+<p>https://sweetalert.js.org/guides/</p>
+<p><strong><em> VISTA </em></strong>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="o">&lt;</span><span class="nx">script</span><span class="w"> </span><span class="nx">src</span><span class="o">=</span><span class="s2">"https://unpkg.com/sweetalert/dist/sweetalert.min.js"</span><span class="o">&gt;&lt;</span><span class="err">/script&gt;</span>
+
+<span class="c1">//ponerlo debajo del DOM en la vista</span>
+<span class="o">&lt;</span><span class="nx">script</span><span class="o">&gt;</span>
+<span class="err">@</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">session</span><span class="p">(</span><span class="s1">'success'</span><span class="p">))</span>
+<span class="nx">swal</span><span class="p">(</span><span class="s2">"Buen Trabajo!"</span><span class="p">,</span><span class="w"> </span><span class="s2">"{{ session('success') }}"</span><span class="p">,</span><span class="w"> </span><span class="s2">"success"</span><span class="p">);</span>
+<span class="err">@</span><span class="nx">endif</span>
+<span class="o">&lt;</span><span class="err">/script&gt;</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong><em> CONTROLADOR </em></strong>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">//</span><span class="n">en</span> <span class="n">el</span> <span class="n">controlador</span> 
+<span class="k">return</span> <span class="n">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="k">with</span><span class="p">(</span><span class="s1">'success'</span><span class="p">,</span><span class="s1">'Hemos recibido el mensaje'</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<h2 id="bases-de-datos-orm">BASES DE DATOS - ORM</h2>
+<p>Si clicamos el comando <strong>php artisan</strong> nos dará un menú de todas las opciones disponibles. </p>
+<p>A nosotros nos interesa crear una base de datos empezaremos con una tabla, es recomendable primero crear la migracion que corresponde con la tabla en la base de datos <strong>articulos</strong> y a continuación crearemos el modelo que corresponde con la entidad <strong>Articulo</strong>. </p>
+<p>Es preferible crearlo en ese orden, también hay que tener cuidado a la hora de crear la migración en plural y la entidad en singular.</p>
+<p><code>php artisan make:migration create_articulos_table --create="articulos"</code></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">//</span><span class="n">Tabla</span> <span class="n">articulos</span>
+ <span class="n">Schema</span><span class="p">::</span><span class="n">create</span><span class="p">(</span><span class="s1">'articulos'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">Blueprint</span> <span class="err">$</span><span class="n">table</span><span class="p">)</span> <span class="p">{</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">unsigned</span><span class="p">();</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">(</span><span class="s1">'titulo'</span><span class="p">);</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">mediumText</span><span class="p">(</span><span class="s1">'descripcion'</span><span class="p">);</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">timestamps</span><span class="p">();</span>
+          <span class="p">});</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="admonition warning">
+<p class="admonition-title">IMPORTANTE -  TIPOS DE COLUMNAS!</p>
+<p>https://laravel.com/docs/9.x/migrations</p>
+</div>
+<div class="admonition danger">
+<p class="admonition-title">CUANDO DA ERROR EN LA MIGRACION NO ENCUENTRA DRIVERS</p>
+<p>https://alphaparticle.com/blog/solved-laravel-sail-could-not-find-driver-error/</p>
+<p>https://stackoverflow.com/questions/70923053/laravel-sail-could-not-find-driver-sql-show-full-tables-where-table-type-b</p>
+</div>
+<p><code>php artisan make:model Articulo</code></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="o">//</span><span class="n">Modelo</span> <span class="n">Articulo</span>
+<span class="k">class</span> <span class="nc">Articulo</span> <span class="n">extends</span> <span class="n">Model</span>
+<span class="p">{</span>
+    <span class="n">protected</span> <span class="err">$</span><span class="n">table</span> <span class="o">=</span> <span class="s1">'articulos'</span><span class="p">;</span>  <span class="o">//</span><span class="n">hacemos</span> <span class="n">referencia</span> <span class="n">a</span> <span class="n">la</span> <span class="n">tabla</span> <span class="n">artículos</span>
+    <span class="n">protected</span> <span class="err">$</span><span class="n">fillable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'titulo'</span><span class="p">,</span> <span class="s1">'descripcion'</span><span class="p">];</span>   
+       <span class="o">//</span><span class="n">fillable</span> <span class="n">para</span> <span class="n">proteger</span> <span class="n">los</span> <span class="n">campos</span> <span class="n">que</span> <span class="n">desea</span> <span class="n">que</span> <span class="n">permitan</span> <span class="n">la</span> <span class="n">actualización</span> <span class="n">a</span> <span class="n">la</span> <span class="n">hora</span> <span class="n">de</span> <span class="n">insertar</span> <span class="n">en</span> <span class="n">la</span> <span class="n">base</span> <span class="n">de</span> <span class="n">datos</span> <span class="n">por</span> <span class="n">asignación</span> <span class="n">masiva</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="seeder-semillas">SEEDER (SEMILLAS)</h2>
+<p><strong><em> SEEDER normal </em></strong></p>
+<ol>
+<li>
+<p>Ejecutamos en terminal php artisan make:seeder NombreSeeder</p>
+</li>
+<li>
+<p>podemos ver que dentro de database-&gt;seeds se genera la nueva semilla e introducimos los siguientes datos.</p>
+</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">//</span><span class="n">añadimos</span> <span class="n">en</span> <span class="n">la</span> <span class="n">clase</span> <span class="n">NombreSeeder</span>
+<span class="n">use</span> <span class="n">Illuminate</span>\<span class="n">Support</span>\<span class="n">Facades</span>\<span class="n">DB</span><span class="p">;</span>
+<span class="n">use</span> <span class="n">Illuminate</span>\<span class="n">Support</span>\<span class="n">Facades</span>\<span class="n">Hash</span><span class="p">;</span>
+<span class="n">use</span> <span class="n">Illuminate</span>\<span class="n">Support</span>\<span class="n">Str</span><span class="p">;</span>
+
+<span class="o">.....................</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="err">$</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="err">$</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="err">$</span><span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">DB</span><span class="p">::</span><span class="n">table</span><span class="p">(</span><span class="s1">'articulos'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">insert</span><span class="p">([</span>
+   <span class="s1">'titulo'</span> <span class="o">=&gt;</span> <span class="n">Str</span><span class="p">::</span><span class="n">random</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+   <span class="s1">'descripcion'</span> <span class="o">=&gt;</span> <span class="n">Str</span><span class="p">::</span><span class="n">random</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="s1">'@gmail.com'</span><span class="p">,</span>
+   <span class="s1">'created_at'</span> <span class="o">=&gt;</span> <span class="n">date</span><span class="p">(</span><span class="s1">'Y-m-d'</span><span class="p">),</span>
+   <span class="s1">'updated_at'</span> <span class="o">=&gt;</span> <span class="n">date</span><span class="p">(</span><span class="s1">'Y-m-d'</span><span class="p">)]);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<ol>
+<li>luego en la clase DataBaseSeeder (otro fichero que ya está creado) activamos dentro de la clase </li>
+</ol>
+<p><code>$this-&gt;call([NombreSeeder::class]);</code></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">public</span> <span class="n">function</span> <span class="n">run</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="err">$</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">call</span><span class="p">([</span>
+        <span class="n">PeliculasSeeder</span><span class="p">::</span><span class="n">class</span><span class="p">,</span>
+                   <span class="p">]);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<ol>
+<li>Para generar los datos insertarmos en terminal</li>
+</ol>
+<p><code>./vendor/bin/sail php artisan db:seed</code></p>
+<p>https://laravel.com/docs/9.x/seeding#writing-seeders</p>
+<h2 id="consultar-datos">CONSULTAR DATOS</h2>
+<h3 id="constructor-de-consultas-query-builder">CONSTRUCTOR DE CONSULTAS (Query Builder)</h3>
+<p>Cuando estamos usando conexiones múltiple</p>
+<p></p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="o">//</span><span class="n">añadimos</span> 
+<span class="n">use</span> <span class="n">Illuminate</span>\<span class="n">Support</span>\<span class="n">Facades</span>\<span class="n">DB</span><span class="p">;</span>
+<span class="o">....</span>
+
+<span class="o">//</span><span class="n">obtenemos</span> <span class="n">todos</span> <span class="n">los</span> <span class="n">usuarios</span>
+<span class="err">$</span><span class="n">datos</span> <span class="o">=</span> <span class="n">DB</span><span class="p">::</span><span class="n">table</span><span class="p">(</span><span class="s1">'articulos'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">();</span>
+
+<span class="n">foreach</span> <span class="p">(</span><span class="err">$</span><span class="n">datos</span> <span class="k">as</span> <span class="err">$</span><span class="n">dato</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">echo</span> <span class="err">$</span><span class="n">dato</span><span class="o">-&gt;</span><span class="n">descripcion</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">Más</span> <span class="n">ejemplos</span> <span class="n">de</span> <span class="n">consultas</span>
+<span class="err">$</span><span class="n">dato</span> <span class="o">=</span> <span class="n">DB</span><span class="p">::</span><span class="n">table</span><span class="p">(</span><span class="s1">'articulos'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">();</span>
+
+<span class="err">$</span><span class="n">dato</span> <span class="o">=</span> <span class="n">DB</span><span class="p">::</span><span class="n">table</span><span class="p">(</span><span class="s1">'articulos'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">where</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'julio'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">();</span>
+
+<span class="err">$</span><span class="n">dato</span> <span class="o">=</span> <span class="n">DB</span><span class="p">::</span><span class="n">table</span><span class="p">(</span><span class="s1">'articulos'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">where</span><span class="p">(</span><span class="s1">'edad'</span><span class="p">,</span> <span class="s1">'&gt;'</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">();</span>
+
+<span class="err">$</span><span class="n">dato</span> <span class="o">=</span> <span class="n">DB</span><span class="p">::</span><span class="n">table</span><span class="p">(</span><span class="s1">'articulos'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">where</span><span class="p">(</span><span class="s1">'estado'</span><span class="p">,</span> <span class="s1">'&lt;&gt;'</span><span class="p">,</span> <span class="s1">'active'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">();</span>
+
+<span class="err">$</span><span class="n">dato</span> <span class="o">=</span> <span class="n">DB</span><span class="p">::</span><span class="n">table</span><span class="p">(</span><span class="s1">'articulos'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">where</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'like'</span><span class="p">,</span> <span class="s1">'J%'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">();</span>
+
+
+<span class="o">//</span><span class="n">insertar</span>
+<span class="n">DB</span><span class="p">::</span><span class="n">table</span><span class="p">(</span><span class="s1">'articulos'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">insert</span><span class="p">(</span>
+        <span class="p">[</span><span class="s1">'titulo'</span><span class="o">=&gt;</span><span class="s2">"pepe"</span><span class="p">,</span><span class="s1">'descripcion'</span><span class="o">=&gt;</span><span class="s2">"nuevadescripcion"</span><span class="p">]</span>
+    <span class="p">);</span>
+
+<span class="o">//</span><span class="n">update</span>
+<span class="n">DB</span><span class="p">::</span><span class="n">table</span><span class="p">(</span><span class="s1">'datos'</span><span class="p">)</span>
+              <span class="o">-&gt;</span><span class="n">where</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+              <span class="o">-&gt;</span><span class="n">update</span><span class="p">([</span><span class="s1">'nombre'</span> <span class="o">=&gt;</span> <span class="s1">'Estefania'</span><span class="p">]);</span>
+
+<span class="o">//</span><span class="n">delete</span>
+<span class="n">DB</span><span class="p">::</span><span class="n">table</span><span class="p">(</span><span class="s1">'datos'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">delete</span><span class="p">();</span>
+<span class="n">DB</span><span class="p">::</span><span class="n">table</span><span class="p">(</span><span class="s1">'datos'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">where</span><span class="p">(</span><span class="s1">'votes'</span><span class="p">,</span> <span class="s1">'&gt;'</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">delete</span><span class="p">();</span>
+</code></pre></div></td></tr></tbody></table></div>
+https://laravel.com/docs/9.x/queries#running-database-queries<p></p>
+<h3 id="consultas-sql-nativas">CONSULTAS SQL NATIVAS</h3>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="o">//</span><span class="n">seleccionar</span>
+<span class="err">$</span><span class="n">results</span> <span class="o">=</span> <span class="n">DB</span><span class="p">::</span><span class="n">select</span><span class="p">(</span><span class="s1">'select * from articulos where id = :id'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'id'</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">]);</span>
+
+<span class="o">//</span><span class="n">insertar</span> <span class="n">en</span> <span class="n">la</span> <span class="n">Base</span> <span class="n">users</span>
+<span class="n">DB</span><span class="p">::</span><span class="n">insert</span><span class="p">(</span><span class="s1">'insert into articulos (titulo, descripcion) values (?, ?)'</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'Dayle'</span><span class="p">]);</span>
+
+<span class="o">//</span><span class="n">actualizar</span>
+<span class="err">$</span><span class="n">affected</span> <span class="o">=</span> <span class="n">DB</span><span class="p">::</span><span class="n">update</span><span class="p">(</span><span class="s1">'update users set votes = 100 where name = ?'</span><span class="p">,</span> <span class="p">[</span><span class="s1">'John'</span><span class="p">]);</span>
+
+<span class="o">//</span><span class="n">borrar</span>
+<span class="err">$</span><span class="n">deleted</span> <span class="o">=</span> <span class="n">DB</span><span class="p">::</span><span class="n">delete</span><span class="p">(</span><span class="s1">'delete from users'</span><span class="p">);</span>
+
+<span class="o">//</span><span class="n">Ejecutando</span> <span class="n">una</span> <span class="n">instrucción</span> <span class="n">general</span> <span class="n">que</span> <span class="n">no</span> <span class="n">devuelve</span> <span class="n">ningún</span> <span class="n">valor</span>
+<span class="n">DB</span><span class="p">::</span><span class="n">statement</span><span class="p">(</span><span class="s1">'drop table users'</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="eloquent">ELOQUENT</h3>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="err">$</span><span class="n">articulos</span><span class="o">=</span><span class="n">Articulo</span><span class="p">::</span><span class="nb">all</span><span class="p">();</span>  <span class="o">//</span><span class="err">$</span><span class="n">escritores</span><span class="o">=</span><span class="n">Escritor</span><span class="p">::</span><span class="n">get</span><span class="p">();</span>
+
+<span class="err">$</span><span class="n">articulosOrdenados</span><span class="o">=</span><span class="n">Articulo</span><span class="p">::</span><span class="n">orderBy</span><span class="p">(</span><span class="s1">'descripcion'</span><span class="p">,</span><span class="s1">'DESC'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">();</span>
+
+<span class="err">$</span><span class="n">articulo</span><span class="o">=</span> <span class="n">Articulo</span><span class="p">::</span><span class="n">findOrFail</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="err">$</span><span class="n">articulo</span><span class="o">=</span> <span class="n">Articulo</span><span class="p">::</span><span class="n">where</span><span class="p">(</span><span class="s1">'edad'</span><span class="p">,</span> <span class="s1">'&gt;'</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">firstOrFail</span><span class="p">();</span>
+
+<span class="err">$</span><span class="n">articulo</span><span class="o">=</span> <span class="n">Articulo</span><span class="p">::</span><span class="n">whereEdad</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">();</span>  <span class="o">//</span><span class="n">es</span> <span class="n">más</span> <span class="n">eficiente</span> <span class="n">especificar</span> <span class="n">las</span> <span class="n">columnas</span> <span class="n">Escritor</span><span class="p">::</span><span class="n">select</span><span class="p">(</span><span class="s1">'id'</span><span class="p">,</span><span class="s1">'name'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">whereEdad</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">()</span>
+
+<span class="err">$</span><span class="n">ArticuloUlti</span><span class="o">=</span><span class="n">Articulo</span><span class="p">::</span><span class="n">latest</span><span class="p">(</span><span class="s1">'created_at'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">();</span>   <span class="o">//</span><span class="n">muestra</span> <span class="n">los</span> <span class="n">últimos</span> <span class="n">que</span> <span class="n">se</span> <span class="n">han</span> <span class="n">añadido</span>
+
+
+<span class="o">//</span><span class="n">insertar</span> <span class="n">Objeto</span> <span class="n">en</span> <span class="n">BD</span>
+        <span class="err">$</span><span class="n">articulo</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Articulo</span><span class="p">();</span>
+        <span class="err">$</span><span class="n">articulo</span><span class="o">-&gt;</span><span class="n">titulo</span> <span class="o">=</span> <span class="s1">'Mi libro Laravel'</span><span class="p">;</span>
+        <span class="err">$</span><span class="n">articulo</span><span class="o">-&gt;</span><span class="n">descripcion</span> <span class="o">=</span> <span class="s1">'Libro donde se habla de Laravel'</span><span class="p">;</span>
+        <span class="err">$</span><span class="n">articulo</span><span class="o">-&gt;</span><span class="n">save</span><span class="p">();</span>
+
+<span class="o">//</span><span class="n">actualizar</span>
+        <span class="err">$</span><span class="n">articulo</span> <span class="o">=</span> <span class="n">Articulo</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>  <span class="o">//</span><span class="err">$</span><span class="n">escritor</span> <span class="o">=</span> <span class="n">App</span><span class="o">/</span><span class="n">Escritor</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="err">$</span><span class="n">articulo</span><span class="o">-&gt;</span><span class="n">titulo</span> <span class="o">=</span> <span class="s1">'Nuevo Laravel'</span><span class="p">;</span>     <span class="o">//</span><span class="err">$</span><span class="n">request</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">;</span>
+        <span class="err">$</span><span class="n">articulo</span><span class="o">-&gt;</span><span class="n">save</span><span class="p">();</span>
+
+<span class="o">//</span><span class="n">borrar</span>
+        <span class="err">$</span><span class="n">articulo</span><span class="o">=</span> <span class="n">Articulo</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="err">$</span><span class="n">articulo</span><span class="o">-&gt;</span><span class="n">delete</span><span class="p">();</span>
+</code></pre></div></td></tr></tbody></table></div>
+<ul>
+<li>
+<p><code>all()</code> devuelve todos los elementos de una tabla.</p>
+</li>
+<li>
+<p><code>find($id)</code> coge una id y devuelve un sólo modelo. Si no existe un modelo coincidente, devuelve null.</p>
+</li>
+<li>
+<p><code>findOrFail($id)</code> toma una idy devuelve un sólo modelo. Si no existe un modelo coincidente, arroja un error1 404.</p>
+</li>
+<li>
+<p><code>first()</code> devuelve el primer registro encontrado en la base de datos. Si no existe un modelo coincidente, devuelve null.</p>
+</li>
+<li>
+<p><code>firstOrFail()</code> devuelve el primer registro encontrado en la base de datos. Si no existe un modelo coincidente, arroja un error1 404.</p>
+</li>
+<li>
+<p><code>get()</code> devuelve una colección de modelos que coinciden con la consulta.</p>
+</li>
+<li>
+<p><code>findOrCreate()</code> en el caso que no existe en la BD, lo crea.</p>
+</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="err">$</span><span class="n">dato</span><span class="o">=</span><span class="n">Articulo</span><span class="p">::</span><span class="n">firstOrCreate</span><span class="p">([</span><span class="s1">'titulo'</span><span class="o">=&gt;</span><span class="s1">'Principito'</span><span class="p">,</span><span class="s1">'descripcion'</span><span class="o">=&gt;</span><span class="s1">'Mi primer articulo'</span><span class="p">]);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>https://laravel-news.com/firstornew-firstorcreate-firstor-updateorcreate</p>
+<ul>
+<li>
+<p><code>toArray()</code> convierte el modelo / colección en una matriz PHP simple.</p>
+</li>
+<li>
+<p><code>Pluck()</code> en caso de obtener una colección y filtrar la parte que nos interesa.</p>
+</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="err">$</span><span class="n">users</span> <span class="o">=</span> <span class="n">User</span><span class="p">::</span><span class="nb">all</span><span class="p">();</span> 
+<span class="o">//</span> <span class="n">Devuelve</span> <span class="n">una</span> <span class="n">colección</span> <span class="n">de</span> <span class="n">usuarios</span><span class="p">,</span> <span class="n">por</span> <span class="n">ejemplo</span><span class="p">,</span> <span class="p">[</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'John'</span><span class="p">,</span> <span class="s1">'age'</span> <span class="o">=&gt;</span> <span class="mi">55</span><span class="p">],[</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Melissa'</span><span class="p">,</span> <span class="s1">'age'</span> <span class="o">=&gt;</span> <span class="mi">18</span><span class="p">],[</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'Bob'</span><span class="p">,</span> <span class="s1">'age'</span> <span class="o">=&gt;</span> <span class="mi">43</span><span class="p">]</span>
+
+<span class="err">$</span><span class="n">usernames</span> <span class="o">=</span> <span class="err">$</span><span class="n">users</span><span class="o">-&gt;</span><span class="n">pluck</span><span class="p">(</span><span class="s1">'name'</span><span class="p">);</span> 
+<span class="o">//</span> <span class="n">tenemos</span> <span class="n">una</span> <span class="n">colección</span> <span class="n">de</span> <span class="p">[</span><span class="s1">'John'</span><span class="p">,</span> <span class="s1">'Melissa'</span><span class="p">,</span> <span class="s1">'Bob'</span><span class="p">,</span> <span class="s1">'Sara'</span><span class="p">]</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> ¿Cúal forma es mejor o más óptima? ¿SQL NATIVE o QUERY BUILDER o ELOQUENT?  </em></strong></p>
+<p>https://www.laraveltip.com/que-es-mejor-eloquent-query-builder-o-sql/</p>
+<h2 id="paginar">PAGINAR</h2>
+<p><strong><em> en el CONTROLADOR de index </em></strong>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>  <span class="err">$</span><span class="n">datos</span><span class="o">=</span><span class="n">Dato</span><span class="p">::</span><span class="n">latest</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">paginate</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong><em> en la VISTA debajo de forelse </em></strong>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="o">//</span><span class="n">en</span> <span class="n">el</span> <span class="n">momento</span> <span class="n">que</span> <span class="n">insertamos</span> <span class="n">datos</span> <span class="n">dentro</span> <span class="n">de</span> <span class="n">la</span> <span class="n">tabla</span> <span class="n">y</span> <span class="n">queremos</span> <span class="n">mostrar</span> <span class="n">los</span> <span class="n">datos</span> <span class="n">de</span> <span class="n">forma</span> <span class="n">más</span> <span class="n">humana</span><span class="o">.</span>
+<span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
+  <span class="nd">@forelse</span> <span class="p">(</span><span class="err">$</span><span class="n">datos</span> <span class="k">as</span> <span class="err">$</span><span class="n">item</span><span class="p">)</span>
+
+    <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span>  <span class="p">{{</span><span class="err">$</span><span class="n">item</span><span class="o">-&gt;</span><span class="n">title</span><span class="p">}}</span>  <span class="p">{{</span><span class="err">$</span><span class="n">item</span><span class="o">-&gt;</span><span class="n">created_at</span><span class="o">-&gt;</span><span class="n">diffForHumans</span><span class="p">()</span> <span class="p">}}</span> 
+     <span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>  
+
+  <span class="nd">@empty</span>
+     <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="n">NO</span> <span class="n">HAY</span> <span class="n">NADA</span> <span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+  <span class="nd">@endforelse</span>
+<span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+
+<span class="p">{{</span><span class="err">$</span><span class="n">datos</span><span class="o">-&gt;</span><span class="n">links</span><span class="p">()}}</span>  <span class="o">//</span><span class="n">DEBAJO</span> <span class="n">DEL</span> <span class="n">FORELSE</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<div class="admonition warning">
+<p class="admonition-title">¿Qué ocurre si vemos las flechas enormes?</p>
+<p>https://stackoverflow.com/questions/64002774/laravel-pagination-is-showing-weird-arrows</p>
+</div>
+<h2 id="crud">CRUD</h2>
+<p>Creas la tabla</p>
+<p><code>php artisan make:migration create_blogs_table --create=blogs</code></p>
+<p>Luego en la migración creas los campos para la base de datos</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Schema</span><span class="p">::</span><span class="n">create</span><span class="p">(</span><span class="s1">'blogs'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">Blueprint</span> <span class="err">$</span><span class="n">table</span><span class="p">)</span> <span class="p">{</span>
+<span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">bigIncrements</span><span class="p">(</span><span class="s1">'id'</span><span class="p">);</span>
+<span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">string</span><span class="p">(</span><span class="s1">'blog_title'</span><span class="p">);</span>
+<span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">(</span><span class="s1">'blog_content'</span><span class="p">);</span>
+<span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">timestamps</span><span class="p">();</span>
+<span class="p">});</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Para generar las rutas podemos hacer dos cosas:</p>
+<ol>
+<li>Generarlas automáticamente con el nombre de las rutas en inglés.</li>
+</ol>
+<p>Generas las rutas insertando el fichero Web</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">use</span> <span class="n">App</span>\<span class="n">Http</span>\<span class="n">Controllers</span>\<span class="n">PhotoController</span><span class="p">;</span>
+<span class="o">..............</span>
+<span class="n">Route</span><span class="p">::</span><span class="n">resource</span><span class="p">(</span><span class="s1">'photos'</span><span class="p">,</span> <span class="n">PhotoController</span><span class="p">::</span><span class="n">class</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Para listar las rutas, en terminal 
+<code>php artisan route:list -v</code></p>
+<p><strong><em> Creamos Controlador  </em></strong></p>
+<p><code>php artisan make:controller photoController --resource</code></p>
+<p>1.index()</p>
+<p>2.create()</p>
+<p>3.store()</p>
+<p>4.show()</p>
+<p>5.edit()</p>
+<p>6.update()</p>
+<p>7.destroy()</p>
+<hr>
+<ol>
+<li>Diseñar nuestras rutas y controlador en castellano uno a uno</li>
+</ol>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="o">//</span><span class="n">Diseñamos</span> <span class="n">nuestras</span> <span class="n">rutas</span> <span class="n">en</span> <span class="n">Web</span>
+<span class="n">use</span> <span class="n">App</span>\<span class="n">Http</span>\<span class="n">Controllers</span>\<span class="n">DatosController</span><span class="p">;</span>
+
+<span class="o">..............</span>
+
+<span class="n">Route</span><span class="p">::</span><span class="n">get</span><span class="p">(</span><span class="s1">'/index'</span><span class="p">,</span> <span class="p">[</span><span class="n">DatosController</span><span class="p">::</span><span class="n">class</span><span class="p">,</span> <span class="s1">'index'</span><span class="p">])</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(</span><span class="s1">'index'</span><span class="p">);</span>
+<span class="n">Route</span><span class="p">::</span><span class="n">post</span><span class="p">(</span><span class="s1">'/almacenar'</span><span class="p">,</span> <span class="p">[</span><span class="n">DatosController</span><span class="p">::</span><span class="n">class</span><span class="p">,</span> <span class="s1">'almacenar'</span><span class="p">])</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(</span><span class="s1">'almacenar'</span><span class="p">);</span>
+<span class="n">Route</span><span class="p">::</span><span class="n">get</span><span class="p">(</span><span class="s1">'/editar/</span><span class="si">{id}</span><span class="s1">'</span><span class="p">,</span> <span class="p">[</span><span class="n">DatosController</span><span class="p">::</span><span class="n">class</span><span class="p">,</span><span class="s1">'editar'</span><span class="p">])</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(</span><span class="s1">'editar'</span><span class="p">);</span>
+<span class="n">Route</span><span class="p">::</span><span class="n">patch</span><span class="p">(</span><span class="s1">'/actualizar/</span><span class="si">{id}</span><span class="s1">'</span><span class="p">,</span> <span class="p">[</span><span class="n">DatosController</span><span class="p">::</span><span class="n">class</span><span class="p">,</span><span class="s1">'actualizar'</span><span class="p">])</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(</span><span class="s1">'actualizar'</span><span class="p">);</span>
+<span class="n">Route</span><span class="p">::</span><span class="n">delete</span><span class="p">(</span><span class="s1">'/borrar/</span><span class="si">{id}</span><span class="s1">'</span><span class="p">,</span> <span class="p">[</span><span class="n">DatosController</span><span class="p">::</span><span class="n">class</span><span class="p">,</span><span class="s1">'borrar'</span><span class="p">])</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(</span><span class="s1">'borrar'</span><span class="p">);</span>
+<span class="n">Route</span><span class="p">::</span><span class="n">view</span><span class="p">(</span><span class="s1">'/insertar'</span><span class="p">,</span><span class="s1">'insertar'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(</span><span class="s1">'insertar'</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Diseñamos la migración y el modelo, en caso de necesitarlo</p>
+<p><code>php artisan make:migration create_datos_table --create=datos</code></p>
+<p>Creamos la migracion que es la tabla en la base de datos "datos"</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Schema</span><span class="p">::</span><span class="n">create</span><span class="p">(</span><span class="s1">'datos'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">Blueprint</span> <span class="err">$</span><span class="n">table</span><span class="p">)</span> <span class="p">{</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">bigIncrements</span><span class="p">(</span><span class="s1">'id'</span><span class="p">);</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">string</span><span class="p">(</span><span class="s1">'nombre'</span><span class="p">);</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">(</span><span class="s1">'descripcion'</span><span class="p">);</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">timestamps</span><span class="p">();</span>
+        <span class="p">});</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Creamos el modelo "Dato" que es la Entidad que vamos a trabajar y dentro ponemos los datos que queremos proteger.</p>
+<p><code>php artisan make:model Dato</code></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="n">protected</span> <span class="err">$</span><span class="n">table</span><span class="o">=</span> <span class="s1">'datos'</span><span class="p">;</span>
+<span class="n">protected</span> <span class="err">$</span><span class="n">fillable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'nombre'</span><span class="p">,</span> <span class="s1">'descripcion'</span><span class="p">];</span> <span class="o">//</span><span class="err">¿</span><span class="n">Qué</span> <span class="n">atributos</span> <span class="n">deberías</span> <span class="n">incluir</span> <span class="n">en</span> <span class="n">dicho</span> <span class="n">array</span><span class="err">?</span>
+
+<span class="o">//</span><span class="n">Aquellos</span> <span class="n">que</span> <span class="n">consideres</span> <span class="n">sensibles</span> <span class="n">y</span> <span class="n">que</span> <span class="n">no</span> <span class="n">deberían</span> <span class="n">modificarse</span> <span class="n">o</span> <span class="n">asignarse</span> <span class="n">en</span> <span class="n">cierta</span> <span class="n">forma</span><span class="p">,</span> <span class="n">el</span> <span class="n">más</span> <span class="n">típico</span> <span class="n">es</span> <span class="n">el</span> <span class="nb">id</span><span class="p">,</span> <span class="n">el</span> <span class="n">cual</span> <span class="n">normalmente</span> <span class="n">no</span> <span class="n">se</span> <span class="n">modifica</span> <span class="n">ni</span> <span class="n">se</span> <span class="n">asigna</span> <span class="n">de</span> <span class="n">forma</span> <span class="n">manual</span><span class="o">.</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="index-mostrar-datos">INDEX-MOSTRAR DATOS</h3>
+<p><strong><em> en el CONTROLADOR </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"> <span class="n">public</span> <span class="n">function</span> <span class="n">index</span><span class="p">(){</span>
+
+    <span class="err">$</span><span class="n">datos</span><span class="o">=</span><span class="n">Dato</span><span class="p">::</span><span class="nb">all</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="n">view</span><span class="p">(</span><span class="s1">'index'</span><span class="p">,[</span><span class="s1">'datos'</span><span class="o">=&gt;</span><span class="err">$</span><span class="n">datos</span><span class="p">]);</span>  <span class="o">//</span><span class="n">view</span><span class="p">(</span><span class="s1">'index'</span><span class="p">,</span><span class="n">compact</span><span class="p">(</span><span class="s1">'datos'</span><span class="p">);</span>
+   <span class="p">}</span> 
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> en la VISTA </em></strong>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="nd">@forelse</span> <span class="p">(</span><span class="err">$</span><span class="n">datos</span> <span class="k">as</span> <span class="err">$</span><span class="n">item</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span> 
+<span class="p">{{</span><span class="err">$</span><span class="n">item</span><span class="o">-&gt;</span><span class="n">nombre</span><span class="p">}}</span> <span class="p">{{</span><span class="err">$</span><span class="n">item</span><span class="o">-&gt;</span><span class="n">descripcion</span><span class="p">}}</span> 
+     <span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{{ route('editar', $item-&gt;id)}}"</span> <span class="o">&gt;</span><span class="n">Edit</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span><span class="n">añadimos</span> <span class="n">también</span> <span class="n">EDITAR</span><span class="o">--&gt;</span>
+     <span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">"{{ route('borrar', $item-&gt;id)}}"</span> <span class="n">method</span><span class="o">=</span><span class="s2">"post"</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span><span class="n">añadimos</span> <span class="n">también</span> <span class="n">BORRAR</span><span class="o">--&gt;</span>
+        <span class="nd">@csrf</span>
+        <span class="nd">@method</span><span class="p">(</span><span class="s1">'DELETE'</span><span class="p">)</span>
+        <span class="o">&lt;</span><span class="n">button</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span><span class="o">&gt;</span><span class="n">borrar</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="nd">@empty</span>
+   <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="n">NO</span> <span class="n">HAY</span> <span class="n">NADA</span> <span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+<span class="nd">@endforelse</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<h3 id="insertar-store">INSERTAR -STORE</h3>
+<p><strong><em> En el CONTROLADOR </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"> <span class="n">public</span> <span class="n">function</span> <span class="n">almacenar</span><span class="p">(</span><span class="n">Request</span> <span class="err">$</span><span class="n">request</span><span class="p">){</span>
+
+<span class="o">//</span><span class="n">LA</span> <span class="n">MEJOR</span> <span class="n">FORMA</span> <span class="n">DE</span> <span class="n">INSERTAR</span> <span class="n">DATOS</span> <span class="n">ya</span> <span class="n">que</span> <span class="n">se</span> <span class="n">hace</span> <span class="n">la</span> <span class="n">comprobación</span> <span class="n">de</span> <span class="n">los</span> <span class="n">campos</span> <span class="n">obligatorios</span> <span class="n">para</span> <span class="n">que</span> <span class="n">no</span> <span class="n">hagan</span> <span class="n">inyeccion</span> <span class="n">y</span> <span class="n">luego</span> <span class="n">inserta</span><span class="o">.</span>
+    <span class="err">$</span><span class="n">datos</span><span class="o">=</span><span class="n">request</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">validate</span><span class="p">([</span>
+        <span class="s1">'nombre'</span><span class="o">=&gt;</span><span class="s1">'required|max:25'</span><span class="p">,</span> 
+        <span class="s1">'descripcion'</span><span class="o">=&gt;</span><span class="s1">'required'</span><span class="p">]</span>
+    <span class="p">);</span>
+
+    <span class="n">Dato</span><span class="p">::</span><span class="n">create</span><span class="p">(</span><span class="err">$</span><span class="n">datos</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">route</span><span class="p">(</span><span class="s1">'index'</span><span class="p">);</span>
+    <span class="o">//</span><span class="k">return</span> <span class="n">back</span><span class="p">();</span> <span class="o">//</span><span class="n">te</span> <span class="n">redirecciona</span> <span class="n">a</span> <span class="n">la</span> <span class="n">misma</span> <span class="n">página</span>
+   <span class="p">}</span> 
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> En la VISTA </em></strong>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="nd">@if</span> <span class="p">(</span><span class="err">$</span><span class="n">errors</span><span class="o">-&gt;</span><span class="nb">any</span><span class="p">())</span>  <span class="o">//</span><span class="n">esto</span> <span class="n">muestra</span> <span class="n">todos</span> <span class="n">los</span> <span class="n">errores</span> <span class="n">seguidos</span>
+    <span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
+        <span class="nd">@foreach</span> <span class="p">(</span><span class="err">$</span><span class="n">errors</span><span class="o">-&gt;</span><span class="nb">all</span><span class="p">()</span> <span class="k">as</span> <span class="err">$</span><span class="n">error</span><span class="p">)</span>
+        <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{{</span> <span class="err">$</span><span class="n">error</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+        <span class="nd">@endforeach</span>
+    <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">br</span><span class="o">/&gt;</span>
+<span class="nd">@endif</span>
+
+<span class="o">&lt;</span><span class="n">form</span> <span class="n">method</span><span class="o">=</span><span class="s2">"post"</span> <span class="n">action</span><span class="o">=</span><span class="s2">"{{ route('almacenar') }}"</span><span class="o">&gt;</span> 
+
+        <span class="nd">@csrf</span>
+        <span class="o">&lt;</span><span class="n">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"name"</span><span class="o">&gt;</span><span class="n">Nombre</span><span class="p">:</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="n">name</span><span class="o">=</span><span class="s2">"nombre"</span> <span class="n">value</span><span class="o">=</span><span class="s2">"{{old('nombre')}}"</span><span class="o">/&gt;</span>  
+        <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span><span class="n">ponemos</span> <span class="n">old</span> <span class="n">porque</span> <span class="n">en</span> <span class="n">el</span> <span class="n">caso</span> <span class="n">que</span> <span class="n">carguemos</span> <span class="n">el</span> <span class="n">formulario</span> <span class="n">y</span> <span class="n">diera</span> <span class="n">error</span> <span class="n">habría</span> <span class="n">que</span> <span class="n">volver</span> <span class="n">a</span> <span class="n">introducir</span> <span class="n">todos</span> <span class="n">los</span> <span class="n">campos</span><span class="p">,</span> <span class="n">así</span> <span class="n">recuerda</span> <span class="n">o</span> <span class="n">guarda</span> <span class="n">los</span> <span class="n">campos</span> <span class="n">que</span> <span class="n">están</span> <span class="n">bien</span><span class="o">--&gt;</span>
+     <span class="p">{</span><span class="err">!!</span> <span class="err">$</span><span class="n">errors</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'&lt;small&gt;:message&lt;/small&gt;&lt;br&gt;'</span> <span class="p">)</span><span class="err">!!</span><span class="p">}</span>  <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span> <span class="n">así</span> <span class="n">especificamos</span> <span class="n">los</span> <span class="n">errores</span> <span class="n">debajo</span><span class="o">--&gt;</span>
+
+        <span class="o">&lt;</span><span class="n">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"price"</span><span class="o">&gt;</span><span class="n">Descripcion</span><span class="p">:</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span> <span class="n">name</span><span class="o">=</span><span class="s2">"descripcion"</span> <span class="n">value</span><span class="o">=</span><span class="s2">"{{old('descripcion')}}"</span><span class="o">/&gt;</span>
+     <span class="p">{</span><span class="err">!!</span> <span class="err">$</span><span class="n">errors</span><span class="o">-&gt;</span><span class="n">first</span><span class="p">(</span><span class="s1">'descripcion'</span><span class="p">,</span> <span class="s1">'&lt;small&gt;:message&lt;/small&gt;&lt;br&gt;'</span> <span class="p">)</span><span class="err">!!</span><span class="p">}</span>  
+
+
+    <span class="o">&lt;</span><span class="n">button</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span><span class="o">&gt;</span><span class="n">Crear</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<h3 id="editar">EDITAR</h3>
+<p><strong><em> EN EL CONTROLADOR </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="n">public</span> <span class="n">function</span> <span class="n">editar</span><span class="p">(</span><span class="err">$</span><span class="nb">id</span><span class="p">){</span>
+
+    <span class="err">$</span><span class="n">dato</span> <span class="o">=</span> <span class="n">Dato</span><span class="p">::</span><span class="n">findOrFail</span><span class="p">(</span><span class="err">$</span><span class="nb">id</span><span class="p">);</span>  <span class="o">//</span><span class="n">como</span> <span class="n">no</span> <span class="n">está</span> <span class="n">el</span> <span class="n">dato</span> <span class="n">si</span> <span class="n">nos</span> <span class="n">equivocamos</span> <span class="n">de</span> <span class="nb">id</span> <span class="n">nos</span> <span class="n">muestra</span> <span class="n">la</span> <span class="n">página</span> <span class="n">de</span> <span class="n">error</span> <span class="mi">404</span><span class="p">,</span> <span class="n">podemos</span> <span class="n">crear</span> <span class="n">uno</span> <span class="n">personalizado</span> <span class="n">en</span> <span class="n">la</span> <span class="n">view</span><span class="o">-&gt;</span><span class="n">errors</span><span class="o">-&gt;</span><span class="mf">404.</span><span class="n">blade</span><span class="o">.</span><span class="n">php</span> <span class="p">,</span> <span class="n">creamos</span> <span class="n">carpeta</span> <span class="s2">"errors"</span>
+    <span class="k">return</span> <span class="n">view</span><span class="p">(</span><span class="s1">'editar'</span><span class="p">,</span> <span class="n">compact</span><span class="p">(</span><span class="s1">'dato'</span><span class="p">));</span>
+   <span class="p">}</span> 
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> EN LA VISTA para EDITAR </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="nd">@if</span> <span class="p">(</span><span class="err">$</span><span class="n">errors</span><span class="o">-&gt;</span><span class="nb">any</span><span class="p">())</span>
+        <span class="o">&lt;</span><span class="n">div</span> <span class="n">class</span><span class="o">=</span><span class="s2">"alert alert-danger"</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">strong</span><span class="o">&gt;</span><span class="n">Whoops</span><span class="err">!</span><span class="o">&lt;/</span><span class="n">strong</span><span class="o">&gt;</span> <span class="n">There</span> <span class="n">were</span> <span class="n">some</span> <span class="n">problems</span> <span class="k">with</span> <span class="n">your</span> <span class="nb">input</span><span class="o">.&lt;</span><span class="n">br</span><span class="o">&gt;&lt;</span><span class="n">br</span><span class="o">&gt;</span>
+            <span class="o">&lt;</span><span class="n">ul</span><span class="o">&gt;</span>
+                <span class="nd">@foreach</span> <span class="p">(</span><span class="err">$</span><span class="n">errors</span><span class="o">-&gt;</span><span class="nb">all</span><span class="p">()</span> <span class="k">as</span> <span class="err">$</span><span class="n">error</span><span class="p">)</span>
+                    <span class="o">&lt;</span><span class="n">li</span><span class="o">&gt;</span><span class="p">{{</span> <span class="err">$</span><span class="n">error</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
+                <span class="nd">@endforeach</span>
+            <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+        <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+    <span class="nd">@endif</span>
+
+<span class="o">&lt;</span><span class="n">form</span> <span class="n">method</span><span class="o">=</span><span class="s2">"post"</span> <span class="n">action</span><span class="o">=</span><span class="s2">"{{ route('actualizar', $dato) }}"</span><span class="o">&gt;</span>  
+<span class="o">//</span><span class="n">No</span> <span class="n">es</span> <span class="n">necesario</span> <span class="n">especificar</span> <span class="n">el</span> <span class="n">Id</span> <span class="n">ya</span> <span class="n">que</span> <span class="n">la</span> <span class="n">nueva</span> <span class="n">versión</span> <span class="n">laravel</span> <span class="n">ya</span> <span class="n">busca</span> <span class="n">dentro</span> <span class="k">del</span> <span class="n">Objeto</span>
+          <span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span> 
+              <span class="nd">@method</span><span class="p">(</span><span class="s1">'PATCH'</span><span class="p">)</span>
+              <span class="nd">@csrf</span>
+
+              <span class="o">&lt;</span><span class="n">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"name"</span><span class="o">&gt;</span><span class="n">nombre</span><span class="p">:</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+              <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span>  <span class="n">name</span><span class="o">=</span><span class="s2">"nombre"</span> <span class="n">value</span><span class="o">=</span><span class="s2">"{{ $dato-&gt;nombre }}"</span><span class="o">/&gt;</span>
+          <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+          <span class="o">&lt;</span><span class="n">div</span> <span class="o">&gt;</span>
+              <span class="o">&lt;</span><span class="n">label</span> <span class="k">for</span><span class="o">=</span><span class="s2">"descripcion"</span><span class="o">&gt;</span><span class="n">descripcion</span><span class="o">&lt;/</span><span class="n">label</span><span class="o">&gt;</span>
+              <span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span>  <span class="n">name</span><span class="o">=</span><span class="s2">"descripcion"</span> <span class="n">value</span><span class="o">=</span><span class="s2">"{{ $dato-&gt;descripcion }}"</span><span class="o">/&gt;</span>
+          <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+
+          <span class="o">&lt;</span><span class="n">button</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="o">&gt;</span><span class="n">Actualizar</span><span class="o">&lt;/</span><span class="n">button</span><span class="o">&gt;</span>
+      <span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em>  En el CONTROLADOR para ALMACENAR DATOS ya MODIFICADOS </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="n">public</span> <span class="n">function</span> <span class="n">actualizar</span><span class="p">(</span><span class="n">Request</span> <span class="err">$</span><span class="n">request</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="err">$</span><span class="n">validacion</span> <span class="o">=</span> <span class="err">$</span><span class="n">request</span><span class="o">-&gt;</span><span class="n">validate</span><span class="p">([</span>
+            <span class="s1">'nombre'</span> <span class="o">=&gt;</span> <span class="s1">'required|min:1|max:10'</span><span class="p">,</span>
+            <span class="s1">'descripcion'</span> <span class="o">=&gt;</span> <span class="s1">'required'</span><span class="p">,</span>
+        <span class="p">]);</span>
+
+        <span class="n">Dato</span><span class="p">::</span><span class="n">whereId</span><span class="p">(</span><span class="err">$</span><span class="n">request</span><span class="o">-&gt;</span><span class="nb">id</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="err">$</span><span class="n">validacion</span><span class="p">);</span> <span class="o">//</span><span class="n">otra</span> <span class="n">opción</span>
+
+        <span class="o">/*</span>  <span class="o">//</span><span class="n">otra</span> <span class="n">forma</span> <span class="n">de</span> <span class="n">almacenar</span>
+         <span class="err">$</span><span class="n">datos</span> <span class="o">=</span> <span class="n">Dato</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="err">$</span><span class="nb">id</span><span class="p">);</span>   <span class="o">//</span><span class="n">podremos</span> <span class="n">utilizar</span> <span class="n">findOrFail</span><span class="p">(</span><span class="err">$</span><span class="nb">id</span><span class="p">)</span> <span class="n">para</span> <span class="n">que</span> <span class="n">en</span> <span class="n">caso</span> <span class="n">de</span> <span class="n">no</span> <span class="n">encontrar</span> <span class="n">no</span> <span class="n">falle</span>
+         <span class="err">$</span><span class="n">datos</span><span class="o">-&gt;</span><span class="n">nombre</span> <span class="o">=</span> <span class="err">$</span><span class="n">validacion</span><span class="p">[</span><span class="s1">'nombre'</span><span class="p">];</span>
+         <span class="err">$</span><span class="n">datos</span><span class="o">-&gt;</span><span class="n">descripcion</span> <span class="o">=</span> <span class="err">$</span><span class="n">validacion</span><span class="p">[</span><span class="s1">'descripcion'</span><span class="p">];</span>
+         <span class="err">$</span><span class="n">datos</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">();</span><span class="o">*/</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">route</span><span class="p">(</span><span class="s1">'index'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">formar</span> <span class="n">de</span> <span class="n">recuperar</span> <span class="n">datos</span> <span class="n">de</span> <span class="n">un</span> <span class="n">formulario</span><span class="o">.</span> <span class="err">$</span><span class="n">request</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">(</span><span class="s1">'nombre'</span><span class="p">);</span> <span class="err">$</span><span class="n">request</span><span class="o">-&gt;</span><span class="n">nombre</span><span class="p">;</span>  <span class="err">$</span><span class="n">request</span><span class="o">-&gt;</span><span class="nb">input</span><span class="p">(</span><span class="s1">'nombre'</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h3 id="borrar">BORRAR</h3>
+<p><strong><em> En el controlador Borrar </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code>    <span class="n">public</span> <span class="n">function</span> <span class="n">borrar</span><span class="p">(</span><span class="err">$</span><span class="nb">id</span><span class="p">){</span>
+
+        <span class="err">$</span><span class="n">dato</span> <span class="o">=</span> <span class="n">Dato</span><span class="p">::</span><span class="n">findOrFail</span><span class="p">(</span><span class="err">$</span><span class="nb">id</span><span class="p">);</span>
+        <span class="err">$</span><span class="n">dato</span><span class="o">-&gt;</span><span class="n">delete</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">route</span><span class="p">(</span><span class="s1">'index'</span><span class="p">);</span>
+       <span class="p">}</span> 
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="relacion-uno-a-uno-1x1">RELACIÓN UNO A UNO (1X1)</h2>
+<p>Crearemos la tabla Usuario y Teléfono. El modelo de User puede estar asociado con un modelo de teléfono. Para definir esta relación, colocaremos un método de phone en el modelo User. El método de phone debe llamar al método hasOne y devolver su resultado.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">//</span><span class="n">tabla</span> <span class="n">users</span> 
+<span class="n">Schema</span><span class="p">::</span><span class="n">create</span><span class="p">(</span><span class="s1">'users'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">Blueprint</span> <span class="err">$</span><span class="n">table</span><span class="p">)</span> <span class="p">{</span>
+
+ <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">);</span>
+
+ <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">string</span><span class="p">(</span><span class="s1">'name'</span><span class="p">);</span>
+
+ <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">string</span><span class="p">(</span><span class="s1">'email'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">unique</span><span class="p">();</span>
+
+ <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">timestamps</span><span class="p">();</span>
+
+ <span class="p">});</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="o">//</span><span class="n">Crear</span> <span class="n">Tabla</span> <span class="n">de</span> <span class="n">Migración</span> <span class="n">de</span> <span class="n">Teléfonos</span> <span class="n">con</span> <span class="n">Clave</span> <span class="n">Foránea</span>
+<span class="n">Schema</span><span class="p">::</span><span class="n">create</span><span class="p">(</span><span class="s1">'phones'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">Blueprint</span> <span class="err">$</span><span class="n">table</span><span class="p">)</span> <span class="p">{</span>
+
+ <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">);</span>
+
+ <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">integer</span><span class="p">(</span><span class="s1">'user_id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">unsigned</span><span class="p">();</span>
+
+ <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">string</span><span class="p">(</span><span class="s1">'phone_no'</span><span class="p">);</span>
+
+ <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">timestamps</span><span class="p">();</span>
+
+ <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">foreign</span><span class="p">(</span><span class="s1">'user_id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">references</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">on</span><span class="p">(</span><span class="s1">'users'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">onDelete</span><span class="p">(</span><span class="s1">'cascade'</span><span class="p">);</span> 
+
+<span class="p">});</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em>  Modelo de usuario: </em></strong></p>
+<p></p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code> <span class="n">namespace</span> <span class="n">App</span>\<span class="n">Models</span><span class="p">;</span>
+
+ <span class="n">use</span> <span class="n">Illuminate</span>\<span class="n">Database</span>\<span class="n">Eloquent</span>\<span class="n">Model</span><span class="p">;</span>
+
+ <span class="k">class</span> <span class="nc">User</span> <span class="n">extends</span> <span class="n">Model</span> 
+<span class="p">{</span>
+ <span class="o">/**</span>
+ <span class="o">*</span> <span class="n">Get</span> <span class="n">the</span> <span class="n">phone</span> <span class="n">associated</span> <span class="k">with</span> <span class="n">the</span> <span class="n">user</span><span class="o">.</span>
+ <span class="o">*/</span>
+ <span class="n">public</span> <span class="n">function</span> <span class="n">phone</span><span class="p">()</span>
+ <span class="p">{</span>
+ <span class="k">return</span> <span class="err">$</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">hasOne</span><span class="p">(</span><span class="n">Phone</span><span class="p">::</span><span class="n">class</span><span class="p">);</span>
+ <span class="p">}</span> 
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<strong><em> Modelo de teléfono </em></strong><p></p>
+<p>Podemos acceder al modelo de Phone desde nuestro modelo de User. A continuación, definamos una relación en el modelo Phone que nos permitirá acceder al usuario propietario del teléfono. Podemos definir el inverso de una relación hasOne usando el método belongsTo.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="n">namespace</span> <span class="n">App</span>\<span class="n">Models</span><span class="p">;</span> 
+
+<span class="n">use</span> <span class="n">Illuminate</span>\<span class="n">Database</span>\<span class="n">Eloquent</span>\<span class="n">Model</span><span class="p">;</span> 
+
+<span class="k">class</span> <span class="nc">Phone</span> <span class="n">extends</span> <span class="n">Model</span> 
+<span class="p">{</span>
+ <span class="o">/**</span>
+ <span class="o">*</span> <span class="n">Get</span> <span class="n">the</span> <span class="n">user</span> <span class="n">that</span> <span class="n">owns</span> <span class="n">the</span> <span class="n">phone</span><span class="o">.</span>
+ <span class="o">*/</span>
+ <span class="n">public</span> <span class="n">function</span> <span class="n">user</span><span class="p">()</span>
+ <span class="p">{</span>
+ <span class="k">return</span> <span class="err">$</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">belongsTo</span><span class="p">(</span><span class="n">User</span><span class="p">::</span><span class="n">class</span><span class="p">);</span>
+ <span class="o">//</span><span class="k">return</span> <span class="err">$</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">belongsTo</span><span class="p">(</span><span class="n">User</span><span class="p">::</span><span class="n">class</span><span class="p">,</span> <span class="s1">'foreign_key'</span><span class="p">);</span>   
+<span class="o">//</span><span class="n">Si</span> <span class="n">la</span> <span class="n">clave</span> <span class="n">externa</span> <span class="n">en</span> <span class="n">el</span> <span class="n">modelo</span> <span class="n">de</span> <span class="n">Phone</span> <span class="n">no</span> <span class="n">es</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">puede</span> <span class="n">pasar</span> <span class="n">un</span> <span class="n">nombre</span> <span class="n">de</span> <span class="n">clave</span> <span class="n">personalizado</span>
+ <span class="p">}</span> 
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> Recuperar registros usando el modelo: </em></strong></p>
+<p>Una vez que se define la relación, podemos recuperar el registro relacionado usando las propiedades dinámicas de Eloquent. Entonces, aquí podemos usar el modelo de usuario con función de teléfono.</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">$</span><span class="n">phone</span> <span class="o">=</span> <span class="n">User</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">phone</span><span class="p">;</span>
+
+<span class="err">$</span><span class="n">user</span> <span class="o">=</span> <span class="n">Phone</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">user</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em>  Crear registros usando el modelo </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">$</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="err">$</span><span class="n">phone</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Phone</span><span class="p">;</span> 
+<span class="err">$</span><span class="n">phone</span><span class="o">-&gt;</span><span class="n">phone_no</span> <span class="o">=</span> <span class="s1">'9876543210'</span><span class="p">;</span>
+<span class="err">$</span><span class="n">user</span><span class="o">-&gt;</span><span class="n">phone</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">save</span><span class="p">(</span><span class="err">$</span><span class="n">phone</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">$</span><span class="n">phone</span> <span class="o">=</span> <span class="n">Phone</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="err">$</span><span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="err">$</span><span class="n">phone</span><span class="o">-&gt;</span><span class="n">user</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">associate</span><span class="p">(</span><span class="err">$</span><span class="n">user</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">save</span><span class="p">();</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="relacion-uno-a-muchos-1xm">RELACIÓN UNO A MUCHOS (1XM)</h2>
+<p>Una categoria tiene muchos artículos. Creamos primero las migraciones (bases datos) y luego el modelo (Entidades), también tenemos la opción de crear el modelo y luego automaticamente las migraciones pero hay que tener cuidado ya que genera el nombre de las tablas de la migración en inglés.</p>
+<p><code>php artisan make:migration create_categorias_table --create="categorias"</code></p>
+<p><code>php artisan make:migration create_articulos_table --create="articulos"</code></p>
+<p><strong><em> Tablas migraciones </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="o">//</span><span class="n">tabla</span> <span class="n">Categories</span>
+  <span class="n">Schema</span><span class="p">::</span><span class="n">create</span><span class="p">(</span><span class="s1">'categorias'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">Blueprint</span> <span class="err">$</span><span class="n">table</span><span class="p">)</span> <span class="p">{</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">unsigned</span><span class="p">();</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">(</span><span class="s1">'nombre'</span><span class="p">);</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">mediumText</span><span class="p">(</span><span class="s1">'masInfo'</span><span class="p">);</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">timestamps</span><span class="p">();</span>
+        <span class="p">});</span>
+
+<span class="o">//</span><span class="n">tabla</span> <span class="n">articulos</span>
+
+    <span class="n">Schema</span><span class="p">::</span><span class="n">create</span><span class="p">(</span><span class="s1">'articulos'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">Blueprint</span> <span class="err">$</span><span class="n">table</span><span class="p">)</span> <span class="p">{</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">unsigned</span><span class="p">();</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">integer</span><span class="p">(</span><span class="s1">'categoria_id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">unsigned</span><span class="p">();</span>  <span class="o">//</span><span class="n">si</span> <span class="n">hubieramos</span> <span class="n">puesto</span> <span class="n">categorias_id</span> <span class="n">tambien</span> <span class="n">hubiera</span> <span class="n">cogido</span> <span class="n">la</span> <span class="n">relación</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">(</span><span class="s1">'titulo'</span><span class="p">);</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">mediumText</span><span class="p">(</span><span class="s1">'descripcion'</span><span class="p">);</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">timestamps</span><span class="p">();</span>
+            <span class="o">//</span><span class="n">relaciones</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">foreign</span><span class="p">(</span><span class="s1">'categoria_id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">references</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">on</span><span class="p">(</span><span class="s1">'categorias'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">onDelete</span><span class="p">(</span><span class="s1">'cascade'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">onUpdate</span><span class="p">(</span><span class="s1">'cascade'</span><span class="p">);</span>
+            <span class="o">//</span><span class="n">category_id</span> <span class="n">hace</span> <span class="n">referencia</span> <span class="n">a</span> <span class="n">la</span> <span class="n">tabla</span> <span class="n">categories</span> <span class="n">y</span> <span class="n">el</span> <span class="n">borrado</span> <span class="n">y</span> <span class="n">la</span> <span class="n">actualización</span> <span class="n">es</span> <span class="n">en</span> <span class="n">cascada</span><span class="o">.</span>
+        <span class="p">});</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> Creamos los modelos </em></strong></p>
+<p><code>php artisan make:model Categoria</code></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="o">//</span><span class="n">Modelo</span> <span class="n">Categoria</span>
+<span class="k">class</span> <span class="nc">Categoria</span> <span class="n">extends</span> <span class="n">Model</span>
+<span class="p">{</span>
+    <span class="n">protected</span> <span class="err">$</span><span class="n">table</span> <span class="o">=</span> <span class="s1">'categorias'</span><span class="p">;</span>
+
+    <span class="o">//</span><span class="n">protected</span> <span class="err">$</span><span class="n">primaryKey</span> <span class="o">=</span> <span class="s1">'categoria_id'</span><span class="p">;</span>  
+    <span class="o">//</span><span class="n">Por</span> <span class="n">defecto</span> <span class="nb">id</span> <span class="n">es</span> <span class="n">la</span> <span class="n">clave</span> <span class="n">primaria</span><span class="p">,</span> <span class="n">podemos</span> <span class="n">definir</span> <span class="n">un</span> <span class="n">campo</span> <span class="n">diferente</span> <span class="n">con</span> <span class="n">la</span> <span class="n">propiedad</span> <span class="n">primaryKey</span>
+
+    <span class="o">//</span><span class="n">public</span> <span class="err">$</span><span class="n">timestamps</span> <span class="o">=</span> <span class="n">true</span><span class="p">;</span>  
+    <span class="o">//</span><span class="n">especificamos</span> <span class="n">si</span> <span class="n">queremos</span> <span class="n">crear</span> <span class="n">created_at</span> <span class="n">y</span> <span class="n">updated_at</span> <span class="n">en</span> <span class="n">la</span> <span class="n">base</span> <span class="n">de</span> <span class="n">datos</span>
+    <span class="n">protected</span> <span class="err">$</span><span class="n">fillable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'nombre'</span><span class="p">,</span> <span class="s1">'masInfo'</span><span class="p">];</span>
+
+    <span class="n">public</span> <span class="n">function</span> <span class="n">articulos</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="err">$</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">hasMany</span><span class="p">(</span><span class="n">Articulo</span><span class="p">::</span><span class="n">class</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="o">//</span><span class="n">Modelo</span> <span class="n">Artículos</span>
+
+<span class="k">class</span> <span class="nc">Articulo</span> <span class="n">extends</span> <span class="n">Model</span>
+<span class="p">{</span>
+    <span class="n">protected</span> <span class="err">$</span><span class="n">table</span> <span class="o">=</span> <span class="s1">'articulos'</span><span class="p">;</span>
+    <span class="n">protected</span> <span class="err">$</span><span class="n">fillable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'titulo'</span><span class="p">,</span> <span class="s1">'descripcion'</span><span class="p">];</span>
+
+    <span class="n">public</span> <span class="n">function</span> <span class="n">categoria</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="err">$</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">belongsTo</span><span class="p">(</span><span class="n">Categoria</span><span class="p">::</span><span class="n">class</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> En el controlador </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="n">public</span> <span class="n">function</span> <span class="n">insertar</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="err">$</span><span class="n">categoria</span> <span class="o">=</span> <span class="n">Categoria</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>   <span class="o">//</span><span class="n">buscamos</span> <span class="n">que</span> <span class="n">ya</span> <span class="n">tenemos</span> <span class="n">almacenada</span> <span class="n">o</span> <span class="n">la</span> <span class="n">creamos</span><span class="o">.</span>
+
+        <span class="err">$</span><span class="n">articulo</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Articulo</span><span class="p">([</span><span class="s1">'titulo'</span> <span class="o">=&gt;</span> <span class="s1">'Pedazo Artículo'</span><span class="p">,</span> <span class="s1">'descripcion'</span> <span class="o">=&gt;</span> <span class="s1">'toda la descripción'</span><span class="p">]);</span>  <span class="o">//</span><span class="n">creamos</span> <span class="n">artículo</span><span class="o">.</span>
+        <span class="err">$</span><span class="n">categoria</span><span class="o">-&gt;</span><span class="n">articulos</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">save</span><span class="p">(</span><span class="err">$</span><span class="n">articulo</span><span class="p">);</span>  <span class="o">//</span><span class="n">guardamos</span> <span class="n">dentro</span> <span class="n">de</span> <span class="n">categoria</span> <span class="n">un</span> <span class="n">artículo</span><span class="o">.</span>
+
+       <span class="o">//</span><span class="n">en</span> <span class="n">caso</span> <span class="n">que</span> <span class="n">tengamos</span> <span class="n">varios</span> <span class="n">artículos</span>
+       <span class="o">/*</span> <span class="err">$</span><span class="n">categoria</span><span class="o">-&gt;</span><span class="n">articulos</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">saveMany</span><span class="p">([</span>
+            <span class="n">new</span> <span class="n">Articulo</span><span class="p">([</span><span class="s1">'titulo'</span> <span class="o">=&gt;</span> <span class="s1">'A new comment.'</span><span class="p">,</span> <span class="s1">'descripcion'</span> <span class="o">=&gt;</span> <span class="s1">'hola'</span><span class="p">]),</span>
+            <span class="n">new</span> <span class="n">Articulo</span><span class="p">([</span><span class="s1">'titulo'</span> <span class="o">=&gt;</span> <span class="s1">'Another comment.'</span><span class="p">,</span>  <span class="s1">'descripcion'</span> <span class="o">=&gt;</span> <span class="s1">'hola'</span><span class="p">]),</span>
+        <span class="p">]);</span><span class="o">*/</span>
+
+    <span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>http://documentacion-laravel.com/eloquent-relationships.html#insertando-y-actualizando-modelos-relacionados</p>
+<p><strong><em> PROBLEMA N+1 - LAZY LOADING </em></strong></p>
+<p>Muestra el nombre de todas las categorias de todos los artículos. Una consulta para obtener todos los artículos en la tabla, después otra consulta para cada articulos para obtener quien es el autor</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code> <span class="err">$</span><span class="n">articulos</span> <span class="o">=</span> <span class="n">Articulo</span><span class="p">::</span><span class="nb">all</span><span class="p">();</span>
+
+ <span class="n">foreach</span> <span class="p">(</span><span class="err">$</span><span class="n">articulos</span> <span class="k">as</span> <span class="err">$</span><span class="n">articulo</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">dump</span><span class="p">(</span><span class="err">$</span><span class="n">articulo</span><span class="o">-&gt;</span><span class="n">categoria</span><span class="o">-&gt;</span><span class="n">nombre</span><span class="p">);</span>
+   <span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em>  SOLUCIÓN - EAGER LOADING  </em></strong></p>
+<p>Al usar la carga previa o carga impaciente (Eager Loading) para reducir esta operación a solo 2 consultas</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">$</span><span class="n">articulos</span> <span class="o">=</span> <span class="n">Articulo</span><span class="p">::</span><span class="k">with</span><span class="p">(</span><span class="s1">'categoria'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">();</span>
+
+ <span class="n">foreach</span> <span class="p">(</span><span class="err">$</span><span class="n">articulos</span> <span class="k">as</span> <span class="err">$</span><span class="n">articulo</span><span class="p">)</span> <span class="p">{</span>
+           <span class="n">echo</span> <span class="err">$</span><span class="n">articulo</span><span class="o">-&gt;</span><span class="n">categoria</span><span class="o">-&gt;</span><span class="n">nombre</span> <span class="o">.</span><span class="s2">"&lt;/br&gt;"</span><span class="p">;</span>
+        <span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>https://styde.net/lazy-loading-vs-eager-loading/</p>
+<p><strong><em> BORRADO </em></strong></p>
+<p>Borra la categoria 9 y todos los articulos relacionados (cascada)</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="err">$</span><span class="n">Categoria</span> <span class="o">=</span> <span class="n">Categoria</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
+<span class="err">$</span><span class="n">Categoria</span><span class="o">-&gt;</span><span class="n">delete</span><span class="p">();</span>
+
+<span class="o">//</span><span class="n">borra</span> <span class="n">artículo</span>
+<span class="err">$</span><span class="n">articulo</span> <span class="o">=</span> <span class="n">Articulo</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>        
+<span class="err">$</span><span class="n">articulo</span><span class="o">-&gt;</span><span class="n">delete</span><span class="p">();</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="relacion-de-muchos-a-muchos-nxm">RELACION DE MUCHOS A MUCHOS (NXM)</h2>
+<p>Un post puede tener muchas Etiquetas y una etiqueta puede tener muchos Posts, por tanto habrá que crear una tabla auxiliar.</p>
+<p><code>php artisan make:migration create_etiquetas_table --create="etiquetas"</code></p>
+<p><code>php artisan make:migration create_posts_table --create="posts"</code></p>
+<p><code>php artisan make:migration create_etiqueta_post_table --create="etiqueta_post"</code></p>
+<p>Dentro de la tabla de migraciones</p>
+<p><strong><em> ETIQUETAS </em></strong></p>
+<p></p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Schema</span><span class="p">::</span><span class="n">create</span><span class="p">(</span><span class="s1">'etiquetas'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">Blueprint</span> <span class="err">$</span><span class="n">table</span><span class="p">)</span> <span class="p">{</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">);</span>
+
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">string</span><span class="p">(</span><span class="s1">'nombre'</span><span class="p">,</span><span class="mi">128</span><span class="p">);</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">string</span><span class="p">(</span><span class="s1">'slug'</span><span class="p">,</span><span class="mi">128</span><span class="p">);</span>
+
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">timestamps</span><span class="p">();</span>
+        <span class="p">});</span>
+</code></pre></div></td></tr></tbody></table></div>
+<strong><em> POSTS </em></strong><p></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0">   <span class="n">Schema</span><span class="p">::</span><span class="n">create</span><span class="p">(</span><span class="s1">'posts'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">Blueprint</span> <span class="err">$</span><span class="n">table</span><span class="p">)</span> <span class="p">{</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">);</span>
+
+             <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">string</span><span class="p">(</span><span class="s1">'nombre'</span><span class="p">,</span><span class="mi">128</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">unique</span><span class="p">();</span>
+             <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">string</span><span class="p">(</span><span class="s1">'slug'</span><span class="p">,</span><span class="mi">128</span><span class="p">);</span>
+             <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">text</span><span class="p">(</span><span class="s1">'cuerpo'</span><span class="p">);</span>
+             <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">enum</span><span class="p">(</span><span class="s1">'status'</span><span class="p">,[</span><span class="s1">'PUBLISHED'</span><span class="p">,</span><span class="s1">'DRAFT'</span><span class="p">])</span><span class="o">-&gt;</span><span class="n">default</span><span class="p">(</span><span class="s1">'DRAFT'</span><span class="p">);</span>
+             <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">string</span><span class="p">(</span><span class="s1">'file'</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">nullable</span><span class="p">();</span>
+
+             <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">timestamps</span><span class="p">();</span>
+
+        <span class="p">});</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> ETIQUETA_POST </em></strong>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"> <span class="n">Schema</span><span class="p">::</span><span class="n">create</span><span class="p">(</span><span class="s1">'etiqueta_post'</span><span class="p">,</span> <span class="n">function</span> <span class="p">(</span><span class="n">Blueprint</span> <span class="err">$</span><span class="n">table</span><span class="p">)</span> <span class="p">{</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">increments</span><span class="p">(</span><span class="s1">'id'</span><span class="p">);</span>
+
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">integer</span><span class="p">(</span><span class="s1">'post_id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">unsigned</span><span class="p">();</span>
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">integer</span><span class="p">(</span><span class="s1">'etiqueta_id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">unsigned</span><span class="p">();</span>
+
+            <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">timestamps</span><span class="p">();</span>
+
+             <span class="o">//</span><span class="n">relaciones</span>
+             <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">foreign</span><span class="p">(</span><span class="s1">'post_id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">references</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">on</span><span class="p">(</span><span class="s1">'posts'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">onDelete</span><span class="p">(</span><span class="s1">'cascade'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">onUpdate</span><span class="p">(</span><span class="s1">'cascade'</span><span class="p">);</span>
+             <span class="err">$</span><span class="n">table</span><span class="o">-&gt;</span><span class="n">foreign</span><span class="p">(</span><span class="s1">'etiqueta_id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">references</span><span class="p">(</span><span class="s1">'id'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">on</span><span class="p">(</span><span class="s1">'etiquetas'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">onDelete</span><span class="p">(</span><span class="s1">'cascade'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">onUpdate</span><span class="p">(</span><span class="s1">'cascade'</span><span class="p">);</span>
+        <span class="p">});</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p>Dentro de los modelos</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="o">//</span><span class="n">Modelo</span> <span class="n">POST</span>
+<span class="k">class</span> <span class="nc">Post</span> <span class="n">extends</span> <span class="n">Model</span>
+<span class="p">{</span>
+    <span class="n">protected</span> <span class="err">$</span><span class="n">table</span> <span class="o">=</span> <span class="s1">'posts'</span><span class="p">;</span>
+    <span class="o">//</span><span class="n">protected</span> <span class="err">$</span><span class="n">primary_key</span> <span class="o">=</span> <span class="s1">'categoria_id'</span><span class="p">;</span>
+    <span class="n">protected</span> <span class="err">$</span><span class="n">fillable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'nombre'</span><span class="p">,</span> <span class="s1">'slug'</span><span class="p">,</span> <span class="s1">'cuerpo'</span><span class="p">,</span> <span class="s1">'status'</span> <span class="p">,</span><span class="s1">'file'</span><span class="p">];</span>
+
+    <span class="n">public</span> <span class="n">function</span> <span class="n">etiquetas</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="err">$</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">belongsToMany</span><span class="p">(</span><span class="n">Etiqueta</span><span class="p">::</span><span class="n">class</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">Modelo</span> <span class="n">ETIQUETA</span>
+
+<span class="k">class</span> <span class="nc">Etiqueta</span> <span class="n">extends</span> <span class="n">Model</span>
+<span class="p">{</span>
+    <span class="n">protected</span> <span class="err">$</span><span class="n">table</span> <span class="o">=</span> <span class="s1">'etiquetas'</span><span class="p">;</span>
+    <span class="o">//</span><span class="n">protected</span> <span class="err">$</span><span class="n">primary_key</span> <span class="o">=</span> <span class="s1">'categoria_id'</span><span class="p">;</span>
+    <span class="n">protected</span> <span class="err">$</span><span class="n">fillable</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'nombre'</span><span class="p">,</span> <span class="s1">'slug'</span><span class="p">];</span>
+
+    <span class="n">public</span> <span class="n">function</span> <span class="n">posts</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="err">$</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">belongsToMany</span><span class="p">(</span><span class="n">Post</span><span class="p">::</span><span class="n">class</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">INSERTAR</span> <span class="n">Tabla</span> <span class="n">intermedia</span>
+
+<span class="n">public</span> <span class="n">function</span> <span class="n">insertarTablaIntermedia</span><span class="p">(){</span>
+        <span class="err">$</span><span class="n">etiqueta</span><span class="o">=</span><span class="n">Etiqueta</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="err">$</span><span class="n">post</span> <span class="o">=</span> <span class="n">Post</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="err">$</span><span class="n">post</span><span class="o">-&gt;</span><span class="n">etiquetas</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">attach</span><span class="p">(</span><span class="err">$</span><span class="n">etiqueta</span><span class="p">);</span>
+       <span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> OBTENER DATOS DE LA otra TABLA RELACIONADA. </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="k">return</span> <span class="n">Post</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">etiquetas</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">();</span>  
+<span class="o">//</span><span class="k">del</span> <span class="n">Post</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">obtiene</span> <span class="n">todas</span> <span class="n">las</span> <span class="n">etiquetas</span> <span class="n">relacionadas</span>
+
+<span class="k">return</span> <span class="n">Post</span><span class="p">::</span><span class="n">find</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">etiquetas</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">where</span><span class="p">(</span><span class="s1">'nombre'</span><span class="p">,</span><span class="s1">'futbol'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">();</span>  
+<span class="o">//</span><span class="k">del</span> <span class="n">Post</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">obtiene</span> <span class="n">la</span> <span class="n">etiqueta</span> <span class="n">relacionada</span> <span class="n">que</span> <span class="n">tiene</span> <span class="n">nombre</span> <span class="o">=</span> <span class="s2">"futbol"</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> CONSULTAS EN MULTIPLES TABLAS </em></strong></p>
+<p>Ejemplo:</p>
+<p>Tablas: a, b, c, d, e, f Quiero traer los datos de todas las tablas relacionadas, los datos de a, b, c, d,e,f. A está relacionado con B (1,n) B con C (1,n) C con D (1,n) D con E (1,n) E con F (1,n) Solución:</p>
+<p>https://es.stackoverflow.com/questions/173727/consultas-en-m%C3%BAltiples-tablas-con-laravel-5-5</p>
+<h2 id="autentificacion-login-registro">AUTENTIFICACIÓN (LOGIN - REGISTRO)</h2>
+<p>https://github.com/laravel/ui</p>
+<ol>
+<li>Primero Instalamos (copiamos las rutas de web ya que se borran )</li>
+</ol>
+<p><code>./vendor/bin/sail composer require laravel/ui</code></p>
+<ol>
+<li>
+<p><code>php artisan ui bootstrap --auth</code></p>
+</li>
+<li>
+<p><code>npm install</code></p>
+</li>
+<li>
+<p><code>npm run dev</code></p>
+</li>
+<li>
+<p>Después si accedemos dentro routes-&gt;Web podemos ver que se ha creado <code>Auth::routes()</code>;</p>
+</li>
+<li>
+<p>Para cambiar la redirección después de Logearnos, tendremos que ir dentro <strong><em>app-&gt;http-&gt;Controller-&gt;Auth</em></strong> cambiamos las rutas de register y login cambiando ruta a /</p>
+</li>
+<li>
+<p>Quitamos la ruta <strong>/home</strong> dentro de las rutas en web</p>
+</li>
+</ol>
+<p><strong><em> MUESTRA USUARIO BLADE </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="nd">@auth</span>    <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span><span class="n">sirve</span> <span class="n">para</span> <span class="n">mostrar</span> <span class="n">en</span> <span class="n">caso</span> <span class="n">de</span> <span class="n">estar</span> <span class="n">autentificado</span><span class="p">,</span> <span class="n">estar</span> <span class="n">logeado</span><span class="o">--&gt;</span>
+<span class="p">{{</span><span class="n">auth</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">user</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">}}</span>
+<span class="nd">@endauth</span>
+
+<span class="o">&lt;</span><span class="err">!</span><span class="o">--</span><span class="n">tambien</span> <span class="n">cambiar</span> <span class="n">la</span> <span class="n">ruta</span> <span class="n">de</span> <span class="n">middleware</span> <span class="n">en</span> <span class="n">caso</span> <span class="n">de</span> <span class="n">estar</span> <span class="n">autentificado</span> <span class="n">y</span> 
+<span class="n">volver</span> <span class="n">hacer</span> <span class="n">login</span> <span class="n">peta</span> <span class="n">y</span> <span class="n">te</span> <span class="n">manda</span> <span class="n">a</span> <span class="n">home</span> <span class="n">por</span> <span class="n">tanto</span> <span class="n">cambiar</span> <span class="n">a</span> <span class="n">raiz</span><span class="o">.--&gt;</span>
+
+<span class="nd">@if</span><span class="p">(</span><span class="n">auth</span><span class="p">())</span> <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span><span class="n">si</span> <span class="n">el</span> <span class="n">usuario</span> <span class="n">está</span> <span class="n">autentificado</span><span class="o">--&gt;</span>
+
+<span class="nd">@endif</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> SABER SI ESTÁ LOGEADO EN EL CONTROLADOR </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">use</span> <span class="n">Illuminate</span>\<span class="n">Support</span>\<span class="n">Facades</span>\<span class="n">Auth</span><span class="p">;</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">Auth</span><span class="p">::</span><span class="n">check</span><span class="p">()){</span> 
+ <span class="k">return</span> <span class="s2">"estas logeado"</span><span class="p">;</span>
+<span class="p">}</span><span class="k">else</span> <span class="p">{</span> 
+ <span class="k">return</span> <span class="s2">"no estas logeado"</span><span class="p">;</span>
+<span class="p">}</span> 
+
+<span class="o">//</span> <span class="n">Obtiene</span> <span class="n">el</span> <span class="n">objeto</span> <span class="k">del</span> <span class="n">Usuario</span> <span class="n">Autenticado</span>
+<span class="err">$</span><span class="n">user</span> <span class="o">=</span> <span class="n">Auth</span><span class="p">::</span><span class="n">user</span><span class="p">();</span>
+<span class="err">$</span><span class="n">user</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">;</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> SECURIZAR </em></strong></p>
+<p>También podemos indicarlo directamente en el constructor de un controlador </p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">public</span> <span class="n">function</span> <span class="n">__construct</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="err">$</span><span class="n">this</span><span class="o">-&gt;</span><span class="n">middleware</span><span class="p">(</span><span class="s1">'auth'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p>Otra forma es indicándolo en la ruta para protegerla </p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="n">Route</span><span class="p">::</span><span class="n">get</span><span class="p">(</span><span class="s1">'/resultado'</span><span class="p">,</span> <span class="s1">'PruebasController@ejemplo'</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">middleware</span><span class="p">(</span><span class="s1">'auth);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> LOGOUT </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="nd">@guest</span> 
+<span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{{route('login')}}"</span><span class="o">&gt;</span><span class="n">Login</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+<span class="nd">@else</span>   
+<span class="o">&lt;</span><span class="n">a</span> <span class="n">href</span><span class="o">=</span><span class="s2">"{{ route('logout') }}"</span> <span class="n">onclick</span><span class="o">=</span><span class="s2">"event.preventDefault(); document.getElementById('logout-form').submit();"</span><span class="o">&gt;</span> <span class="n">Logout</span> <span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;</span>
+
+  <span class="o">&lt;</span><span class="n">form</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"logout-form"</span> <span class="n">action</span><span class="o">=</span><span class="s2">"{{ route('logout') }}"</span> <span class="n">method</span><span class="o">=</span><span class="s2">"POST"</span> <span class="n">style</span><span class="o">=</span><span class="s2">"display: none;"</span><span class="o">&gt;</span>
+     <span class="nd">@csrf</span>
+  <span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+<span class="nd">@endguest</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> DESHABILITAR REGISTRO </em></strong></p>
+<p>vamos a Web y modificamos ruta</p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="n">Auth</span><span class="p">::</span><span class="n">routes</span><span class="p">([</span><span class="s1">'register'</span><span class="o">=&gt;</span><span class="n">false</span><span class="p">]);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em>  BLOQUEAR USUARIO, INTENTOS FALLIDOS </em></strong></p>
+<p>En el caso que querramos bloquear al usuario por intentos de ingresos fallidos y penalizar el tiempo a la hora de volver autenficarte,
+bastará con añadir el controlador por defecto  <strong><em>app-&gt;http-&gt;Controller-&gt;auth-&gt; LoginController</em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">LoginController</span> <span class="n">extends</span> <span class="n">Controller</span>
+<span class="p">{</span>
+
+    <span class="n">use</span> <span class="n">AuthenticatesUsers</span><span class="p">;</span>
+
+    <span class="n">public</span> <span class="err">$</span><span class="n">maxAttempts</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>   <span class="o">//</span><span class="n">número</span> <span class="n">máximo</span> <span class="n">de</span> <span class="n">intentos</span>
+    <span class="n">public</span> <span class="err">$</span><span class="n">decayMinutes</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>  <span class="o">//</span><span class="n">tiempo</span> <span class="n">que</span> <span class="n">durará</span> <span class="n">el</span> <span class="n">bloqueo</span>
+</code></pre></div></td></tr></tbody></table></div>
+<h2 id="try-catch">TRY ... CATCH</h2>
+<p><strong><em> Las Rutas </em></strong></p>
+<div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="n">Route</span><span class="p">::</span><span class="n">get</span><span class="p">(</span><span class="s1">'/formularioBusqueda'</span><span class="p">,</span> <span class="p">[</span><span class="n">PeliculasController</span><span class="p">::</span><span class="n">class</span><span class="p">,</span> <span class="n">formulario</span><span class="s1">'])-&gt;name('</span><span class="n">formularioBusqueda</span><span class="s1">');   </span>
+<span class="n">Route</span><span class="p">::</span><span class="n">post</span><span class="p">(</span><span class="s1">'/product/resultado'</span><span class="p">,</span> <span class="p">[</span><span class="n">ProductController</span><span class="p">:</span><span class="n">class</span><span class="p">,</span> <span class="s1">'resultado'</span><span class="p">])</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">(</span><span class="s1">'resultadoBusqueda'</span><span class="p">);</span>
+</code></pre></div></td></tr></tbody></table></div>
+<p><strong><em> En la vista 'formularioBusqueda' </em></strong>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="nd">@if</span> <span class="p">(</span><span class="n">session</span><span class="p">(</span><span class="s1">'error'</span><span class="p">))</span>
+<span class="o">&lt;</span><span class="n">div</span><span class="o">&gt;</span><span class="p">{{</span> <span class="n">session</span><span class="p">(</span><span class="s1">'error'</span><span class="p">)</span> <span class="p">}}</span><span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>   <span class="o">&lt;</span><span class="err">!</span><span class="o">--</span><span class="n">En</span> <span class="n">caso</span> <span class="n">de</span> <span class="n">no</span> <span class="n">encontrar</span> <span class="n">el</span> <span class="n">producto</span> <span class="n">en</span> <span class="n">la</span> <span class="n">BBDD</span> <span class="n">muestra</span> <span class="n">error</span><span class="o">--&gt;</span>
+<span class="nd">@endif</span>
+
+<span class="o">&lt;</span><span class="n">form</span> <span class="n">action</span><span class="o">=</span><span class="s2">"{{ route('resultadoBusqueda') }}"</span> <span class="n">method</span><span class="o">=</span><span class="s2">"POST"</span><span class="o">&gt;</span>
+<span class="nd">@csrf</span>
+
+<span class="o">&lt;</span><span class="nb">input</span> <span class="nb">id</span><span class="o">=</span><span class="s2">"title name="</span><span class="n">title</span><span class="s2">" type="</span><span class="n">text</span><span class="s2">" value="</span><span class="p">{{</span> <span class="n">old</span><span class="p">(</span><span class="s1">'product'</span><span class="p">)</span> <span class="p">}}</span><span class="s2">" placeholder="</span><span class="n">Product</span> <span class="n">Title</span><span class="s2">"&gt;</span>
+
+<span class="o">&lt;</span><span class="nb">input</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"submit"</span> <span class="n">value</span><span class="o">=</span><span class="s2">"Search"</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="n">form</span><span class="o">&gt;</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+<p><strong><em>  En el controlador </em></strong>
+</p><div class="highlight"><table class="highlighttable"><tbody><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code tabindex="0"><span class="n">public</span> <span class="n">function</span> <span class="n">resultado</span><span class="p">(</span><span class="n">Request</span> <span class="err">$</span><span class="n">request</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="err">$</span><span class="n">product</span> <span class="o">=</span> <span class="n">Product</span><span class="p">::</span><span class="n">where</span><span class="p">(</span><span class="s1">'title'</span><span class="p">,</span><span class="err">$</span><span class="n">request</span><span class="o">-&gt;</span><span class="n">get</span><span class="p">(</span><span class="s1">'title'</span><span class="p">));</span>  <span class="o">//</span><span class="n">busca</span> <span class="n">el</span> <span class="n">producto</span> <span class="n">en</span> <span class="n">la</span> <span class="n">BBDD</span>
+    <span class="p">}</span> <span class="n">catch</span> <span class="p">(</span><span class="n">ModelNotFoundException</span> <span class="err">$</span><span class="n">exception</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">back</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">withError</span><span class="p">(</span><span class="err">$</span><span class="n">exception</span><span class="o">-&gt;</span><span class="n">getMessage</span><span class="p">())</span><span class="o">-&gt;</span><span class="n">withInput</span><span class="p">();</span>   <span class="o">//</span><span class="n">en</span> <span class="n">caso</span> <span class="n">de</span> <span class="n">no</span> <span class="n">encontrar</span> <span class="n">en</span> <span class="n">la</span> <span class="n">BBDD</span> <span class="n">captura</span> <span class="n">la</span> <span class="n">excepción</span> <span class="n">y</span> <span class="n">envia</span> <span class="n">la</span> <span class="n">info</span> <span class="n">a</span> <span class="n">la</span> <span class="n">misma</span> <span class="n">vista</span> 
+        <span class="o">//</span><span class="k">return</span> <span class="err">$</span><span class="n">exception</span><span class="o">-&gt;</span><span class="n">getMessage</span><span class="p">();</span>
+
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">view</span><span class="p">(</span><span class="s1">'resultadoBusqueda'</span><span class="p">,</span> <span class="n">compact</span><span class="p">(</span><span class="s1">'product'</span><span class="p">));</span>   <span class="o">//</span><span class="n">en</span> <span class="n">caso</span> <span class="n">de</span> <span class="n">encontrar</span> <span class="n">el</span> <span class="n">producto</span> <span class="n">manda</span> <span class="n">otra</span> <span class="n">vista</span> <span class="n">el</span> <span class="n">resultado</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></tbody></table></div><p></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="./apuntes_laravel_files/bundle.2a6f1dda.min.js.descarga"></script>
+      
+    
+  
+</body></html>
